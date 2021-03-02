@@ -1,0 +1,67 @@
+===============================================
+저장시간 : 2021-03-02 오후 7:05:26 화요일
+===============================================
+// google coding convention
+#include <iostream>
+#include <filesystem>
+#include <fstream>
+#include <ctime>
+#include "save.h"
+
+
+void save(std::string_view fileName)
+{
+	// 어떠한 파일을 저장하는지 화면에 출력함. - 파일name & size
+	std::cout << "저장: " << fileName << ", 크기: " << std::filesystem::file_size(fileName) << std::endl;
+
+	std:: ofstream out("2021 1학기 STL 화56 목56 강의저장.txt", std::ios::app);
+
+	std::ifstream in(fileName);
+
+	using namespace std;
+	// 파일을 기록한 시간도 기록
+	time_t t = time(nullptr);
+
+	out.imbue(std::locale("korean"));
+
+	out << "===============================================" << endl;
+	out << "저장시간 : " << put_time(localtime(&t), "%c %A") << endl;
+	out << "===============================================" << endl;
+
+	int c; // EOF 검사용(파일의 종점)
+	while ((c = in.get()) != EOF)
+		out.put(c);
+
+	// RAII
+}===============================================
+저장시간 : 2021-03-02 오후 7:05:26 화요일
+===============================================
+#pragma once
+#include<string_view>
+
+void save(std::string_view fileName);===============================================
+저장시간 : 2021-03-02 오후 7:05:26 화요일
+===============================================
+//-------------------------------------------------------------
+// X86 mode & Release mode 에서 프로그램
+//
+// 2021. 1학기 STL 화56 목56  - 3월 2일 화요일		(1주 1차시)
+//
+// 실행 될 때마다 소스파일을 저장한다.
+//-------------------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main()
+{
+	save("save.cpp");
+	save("save.h");
+	save("소스.cpp");
+	return 0;
+}
+
+
+
