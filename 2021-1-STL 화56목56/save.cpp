@@ -1,11 +1,10 @@
-// google coding convention
 #include <iostream>
 #include <filesystem>
 #include <fstream>
 #include <ctime>
 #include "save.h"
 
-
+// google coding convention
 void save(std::string_view fileName)
 {
 	// 어떠한 파일을 저장하는지 화면에 출력함. - 파일name & size

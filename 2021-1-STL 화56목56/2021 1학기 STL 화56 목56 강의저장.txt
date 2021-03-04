@@ -24,3 +24,113 @@ int main()
 
 
 
+===============================================
+저장시간 : 2021-03-04 오후 2:01:38 목요일
+===============================================
+//-------------------------------------------------------------
+// X86 mode & Release mode 에서 프로그램
+//
+// 2021. 1학기 STL 화56 목56  - 3월 4일 목요일		(1주 2차시)
+//
+// 1주 1일 강의 소스는 e-class에 수록
+//
+// 이번 시간 내용 - C++ 언어 복습
+// 많은 수의 데이터 다루기
+//-------------------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// [문제] main()을 변경하지 않고 실행 되도록 하자.
+// Game은 사용자가 정의하는 클래스이다.
+// 화면 출력은 2,1로
+class Game {
+public:
+	Game(int n) :n{ n } {};
+private:
+	int n;
+	friend ostream& operator<<(ostream& os, const Game& game);
+};
+void change(Game& a, Game& b);
+
+int main()
+{
+	Game a{ 1 };
+	Game b{ 2 };
+	
+	change(a, b);
+
+	cout << a << ", " << b << endl;
+	save("소스.cpp");
+	return 0;
+}
+ostream& operator<<(ostream& os, const Game& game)
+{
+	os << game.n;
+	return os;
+}
+
+void change(Game& a, Game& b) {
+	Game temp{ a };
+	a = b;
+	b = temp;
+}
+--------------------------------------------------------------------------------------------------------------------
+// [문제] main()을 변경하지 않고 실행 되도록 하자.
+// 앞에서 만든 change()가 다른 자료형도 바꿀수 있도록 하자.
+// 화면 출력은 2,1로
+template <typename T>
+void change(T& a, T& b) {
+	T temp{ a };
+	a = b;
+	b = temp;
+};
+
+int main()
+{
+	int a{ 1 };
+	int b{ 2 };
+	
+	change(a, b);
+
+	cout << a << ", " << b << endl;
+	save("소스.cpp");
+	return 0;
+}
+--------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+ 
+// [문제] int 20개를 저장할 공간을 마련한다
+// int를 임의의 값(랜덤엔진과 분포)으로 만든다.
+// 값을 오름 or 내림차순으로 정렬 해보자.
+// 화면에 int 값을 출력하자.
+
+default_random_engine dre; // 랜덤 엔진
+
+int main()
+{
+	uniform_int_distribution uid{ 1,1000 }; // 범위 지정 가능
+
+	int arr[20];
+	for (int& n : arr)
+		n = uid(dre);
+
+	for (int n : arr)
+		cout << n << " ";
+	cout << endl << "정렬" << endl;
+	// 정렬한다
+	sort(begin(arr), end(arr), greater<int>()); // 3번째 인자로 정렬방법을 결정할 수 있음.
+	//또는 [](int a, int b) {return a < b; }
+	
+	for (int n : arr)
+		cout << n << " ";
+	cout << endl;
+	save("소스.cpp");
+	return 0;
+}
