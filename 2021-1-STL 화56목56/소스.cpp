@@ -13,8 +13,8 @@ using namespace std;
 
 int main()
 {
-	save("save.cpp");
-	save("save.h");
+	/*save("save.cpp");
+	save("save.h");*/
 	save("¼Ò½º.cpp");
 	return 0;
 }
