@@ -1,43 +1,38 @@
-//-------------------------------------------------------------
+//--------------------------------------------------------------------
 // X86 mode & Release mode 에서 프로그램
 //
-// 2021. 1학기 STL 화56 목56  - 3월 4일 목요일		(1주 2차시)
+// 2021. 1학기 STL 화56 목56  - 3월 9일 화요일	(2주 1차시)
 //
-// 1주 1일 강의 소스는 e-class에 수록
-//
-// 이번 시간 내용 - C++ 언어 복습
 // 많은 수의 데이터 다루기 - int 에서 시작
-//-------------------------------------------------------------
+// 갯수를 늘리며 자료가 저장되는 방식과 공간을 이해한다.
+// 많은 수의 자료를 저장하는 방식을 알아본다
+//
+// sort 설명 다시 - 함수의 역할 / 비교 횟수 등을 살펴보자
+// 객체를 많이 만들어 반복
+//
+// 알고리즘 시간재기
+// 스마트 포인터
+//
+// 앞으로 사용할 관찰용 class 만들어 두기
+//--------------------------------------------------------------------
 
 #include <iostream>
-#include <random>
-#include <algorithm>
+#include <fstream>
+#include <numeric>
 #include "save.h"
 using namespace std;
  
-// [문제] int 20개를 저장할 공간을 마련한다
-// int를 임의의 값(랜덤엔진과 분포)으로 만든다.
-// 값을 오름 or 내림차순으로 정렬 해보자.
-// 화면에 int 값을 출력하자.
-
-default_random_engine dre; // 랜덤 엔진
-
+// [문제] 정수 100개를 400바이트 공간에 기록하자.
+// int a[100]개 값을 1부터 100으로 채우고
+// 파일 "int 100개.txt"에 저장
+// 파일 크기는 무조건 400개
 int main()
 {
-	uniform_int_distribution uid{ 1,1000 }; // 범위 지정 가능
+	int arr[100];
+	iota(begin(arr), end(arr), 1);
+	ofstream out("int 100개.txt", ios::binary);
+	
+	out.write((char *)arr, 100 * sizeof(int));
 
-	int arr[20];
-	for (int& n : arr)
-		n = uid(dre);
-
-	for (int n : arr)
-		cout << n << " ";
-	cout << endl << "정렬" << endl;
-	// 정렬한다
-	sort(begin(arr), end(arr), [](int a, int b) {return a < b; }); // 3번째 인자로 정렬방법을 결정할 수 있음.
-	for (int n : arr)
-		cout << n << " ";
-	cout << endl;
 	//save("소스.cpp");
-	return 0;
 }

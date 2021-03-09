@@ -27,6 +27,5 @@ void save(std::string_view fileName)
 	int c; // EOF 검사용(파일의 종점)
 	while ((c = in.get()) != EOF)
 		out.put(c);
-
 	// RAII
 }
