@@ -1,14 +1,5 @@
 //--------------------------------------------------------------------
-// X86 mode & Release mode 에서 프로그램
-//
-// 2021. 1학기 STL 화56 목56  - 3월 9일 화요일	(2주 1차시)
-//
-// 많은 수의 데이터 다루기 - int 에서 시작
-// 갯수를 늘리며 자료가 저장되는 방식과 공간을 이해한다.
-// 많은 수의 자료를 저장하는 방식을 알아본다
-//
-// sort 설명 다시 - 함수의 역할 / 비교 횟수 등을 살펴보자
-// 객체를 많이 만들어 반복
+// 2021. 1학기 STL 화56 목56  - 3월 11일 목요일	(2주 2차시)
 //
 // 알고리즘 시간재기
 // 스마트 포인터
@@ -17,22 +8,18 @@
 //--------------------------------------------------------------------
 
 #include <iostream>
-#include <fstream>
-#include <numeric>
+#include <thread>
+#include <chrono>
 #include "save.h"
 using namespace std;
- 
-// [문제] 정수 100개를 400바이트 공간에 기록하자.
-// int a[100]개 값을 1부터 100으로 채우고
-// 파일 "int 100개.txt"에 저장
-// 파일 크기는 무조건 400개
+
 int main()
 {
-	int arr[100];
-	iota(begin(arr), end(arr), 1);
-	ofstream out("int 100개.txt", ios::binary);
+	using namespace std::chrono;
+	//(수까락의 프로그래밍 참고)
+	auto b = chrono::steady_clock::now();	//스톱워치 시작
+	this_thread::sleep_for(333ms);
 	
-	out.write((char *)arr, 100 * sizeof(int));
-
+	cout << "경과시간(밀리초) - " << duration_cast<chrono::milliseconds>steady_clock::now() - b).count(); << endl;
 	//save("소스.cpp");
 }

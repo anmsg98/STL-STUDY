@@ -22,22 +22,7 @@ int main()
 	return 0;
 }
 
-
-
-===============================================
-저장시간 : 2021-03-04 오후 2:01:38 목요일
-===============================================
-//-------------------------------------------------------------
-// X86 mode & Release mode 에서 프로그램
-//
-// 2021. 1학기 STL 화56 목56  - 3월 4일 목요일		(1주 2차시)
-//
-// 1주 1일 강의 소스는 e-class에 수록
-//
-// 이번 시간 내용 - C++ 언어 복습
-// 많은 수의 데이터 다루기
-//-------------------------------------------------------------
-
+------------------------------------------------------------------------------------------
 #include <iostream>
 #include "save.h"
 
@@ -205,13 +190,35 @@ int main()
 	cout << endl;
 	save("소스.cpp");
 }
+------------------------------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <numeric>
+#include "save.h"
+using namespace std;
+ 
+// [문제] 정수 100개를 400바이트 공간에 기록하자.
+// int a[100]개 값을 1부터 100으로 채우고
+// 파일 "int 100개.txt"에 저장
+// 파일 크기는 무조건 400byte
+int main()
+{
+	int arr[100];
+	iota(begin(arr), end(arr), 1);
+	ofstream out("int 100개.txt");
+	
+	out.write((char*)arr, 100 * sizeof(int));
+
+	save("소스.cpp");
+}
+
 ===============================================
-저장시간 : 2021-03-09 오후 3:16:09 화요일
+저장시간 : 2021-03-11 오후 1:45:59 목요일
 ===============================================
 //--------------------------------------------------------------------
 // X86 mode & Release mode 에서 프로그램
 //
-// 2021. 1학기 STL 화56 목56  - 3월 9일 화요일	(2주 1차시)
+// 2021. 1학기 STL 화56 목56  - 3월 11일 목요일	(2주 2차시)
 //
 // 많은 수의 데이터 다루기 - int 에서 시작
 // 갯수를 늘리며 자료가 저장되는 방식과 공간을 이해한다.
@@ -228,21 +235,105 @@ int main()
 
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+ 
+// [문제] 파일 "int 100개.txt"에 바이너리로 저장되어있는 정수 100개가 있다.
+// 읽은 정수 100개를 내림차순으로 정렬한 후 출력.
+
+int main()
+{
+	int arr[100];
+	ifstream in("int 100개.txt", ios::binary);
+
+	if (!in)
+		exit(0);
+
+	in.read((char*)&arr, 100 * sizeof(int));
+	sort(begin(arr), end(arr), [](int a, int b) {return a > b; });
+
+	for (int n : arr)
+		cout << n << " ";
+	
+	cout << endl;
+	
+	save("소스.cpp");
+
+}
+------------------------------------------------------------------------------------------
+#include <iostream>
 #include <numeric>
 #include "save.h"
 using namespace std;
  
-// [문제] 정수 100개를 400바이트 공간에 기록하자.
-// int a[100]개 값을 1부터 100으로 채우고
-// 파일 "int 100개.txt"에 저장
-// 파일 크기는 무조건 400개
+// [문제] 사용자가 원하는 갯수 num만큼 int를 저장할 공간을 확보한다
+// 이 공간을 1부터 num까지 숫자로 채워라.
+// 처음과 마지막 값을 화면에 출력.
 int main()
 {
-	int arr[100];
-	iota(begin(arr), end(arr), 1);
-	ofstream out("int 100개.txt");
-	
-	out.write((char*)arr, 100 * sizeof(int));
+	cout << "몇개의 int를 원하십니까: ";
+	int num;
+	cin >> num;
+	int* arr;
+		try {
+		arr = new int[num]; // 배열 버전 new 연산자를 사용한다. *배열 길이는 상수가 아니여도 된다*. 
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	} // 예외가 발생했을경우 프로그램 강제종료가 아닌 오류 메세지 출력 
+	for (int i = 0; i < num; i++)
+		arr[i] = i + 1;
+	cout << "처음 원소의 값: " << arr[0] << endl;
+	cout << "마지막 원소의 값: " << arr[num - 1] << endl;
 
+	delete[] arr;
+	save("소스.cpp");
+}
+------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+// core c++ guide - raw pointer를 사용하지 말 것.
+
+int main()
+{
+	int cnt{};
+	while (true) {
+		// 확보한 자원은 지역을 벗어나며 자동으로 메모리 해제(delete)
+		unique_ptr<char[]> p{ new char[500000000] };
+
+		cout << ++cnt << "\r";
+		break;
+
+	}
+	save("소스.cpp");
+}===============================================
+저장시간 : 2021-03-11 오후 3:18:16 목요일
+===============================================
+//--------------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 3월 11일 목요일	(2주 2차시)
+//
+// 알고리즘 시간재기
+// 스마트 포인터
+//
+// 앞으로 사용할 관찰용 class 만들어 두기
+//--------------------------------------------------------------------
+
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	//(수까락의 프로그래밍 참고)
+	auto b = chrono::steady_clock::now();	//스톱워치 시작
+	this_thread::sleep_for(100ms);
+	auto e = chrono::steady_clock::now();	// 스톱워치 끝
+	auto d = e - b;
+	cout << "경과시간(밀리초) - " << chrono::duration_cast<chrono::milliseconds>(d).count() << endl;
 	save("소스.cpp");
 }
