@@ -399,6 +399,103 @@ int main()
 
 	save("소스.cpp");
 }
+------------------------------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <string>
+#include <fstream>
+#include <memory>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// [문제] Dog 객체를 만들어 파일에 저장하고 다시 읽어 정렬해 본다.
+// 파일 "Dog 만객체"에 바이너리 모드로 저장되어 있는 Dog 10000 객체를 읽어라 
+// id 오름차순으로 정렬
+
+default_random_engine dre;
+uniform_int_distribution<> uid;
+
+class Dog {
+public:
+	Dog() : id{ uid(dre) } {
+		name = "Dog"s;
+		name += to_string(cnt);
+		
+		++cnt;
+	}
+	int getID() const {
+		return id;
+	}
+
+private:
+	int id;			// 4
+	string name;	// 24 (28 - debug) -x64
+
+	static int cnt; // 4 - 클래스 공통
+
+	friend ostream& operator<<(ostream& os, const Dog& dog);
+};
+
+int Dog::cnt = { 1 };
+
+ostream& operator<<(ostream& os, const Dog& dog)
+{
+	os << "이름: " << dog.name << ", 아이디: " << dog.id;
+	return os;
+}
+
+Dog dogs[10000];
+
+int main()
+{
+
+	ifstream in{ "Dog 만객체.txt",ios::binary };
+	
+	unique_ptr<Dog[]> dogs{ new Dog[10000] }; // 같은 타입의 포인터로 받아야됨
+
+	in.read((char*)dogs.get(), sizeof(Dog) * 10000);
+	
+	sort(&dogs[0], &dogs[10000], [](const Dog& a, const Dog& b)	{return a.getID() < b.getID(); });
+	
+	for (int i = 0; i < 10000; i++)
+		cout << dogs[i] << endl;
+	
+	save("소스.cpp");
+}
+------------------------------------------------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+void f(int)
+{
+	cout << "나는 그냥 함수야" << endl;
+}
+
+class Test {
+public:
+	void operator()(int) {
+		cout << "나는 클래스가 구현한 연산자() 야" << endl;
+	}
+	void(*m)(int) = f;
+};
+
+auto x = [](int) -> void {
+	cout << "람다" << endl;
+};
+
+
+int main()
+{
+	// f를 다른 변수에 저장할 수 있을까?
+	void(*a)(int) = f;
+
+	cout << typeid(a).name() << endl;
+
+	save("소스.cpp");
+}
 
 
 

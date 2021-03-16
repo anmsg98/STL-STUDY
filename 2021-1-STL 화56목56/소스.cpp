@@ -1,65 +1,49 @@
 //-----------------------------------------------------------------
 // 2021. 1학기 STL 화56 목56  - 3월 16일 화요일            (3주 1일)
 //
-// Dog 만들고 저장하고 읽어 정렬하기 시작할 것
-// callable type
+// 호출 가능한 타입 - callable type
 //
-// 앞으로 사용할 관찰용 class 만들어 두기
+// 앞으로 사용할 관찰용 class(자원을 확보하는) 만들어 두기
 //-----------------------------------------------------------------
 
 #include <iostream>
-#include <random>
-#include <string>
-#include <fstream>
+#include <thread>
 #include "save.h"
 using namespace std;
 
-// [문제] Dog 객체를 만들어 파일에 저장하고 다시 읽어 정렬해 본다.
-// 파일 "Dog 만객체"에 바이너리 모드로 저장되어 있는 Dog 10000 객체를 읽어라 
-// id 오름차순으로 정렬
+// 쿠키런
+// 왼쪽버튼 - 점프, 오른쪽버튼 - 슬라이드
+//
+// 설정에 가서 버튼을 바꿨다.
+// 프로그램 구현은 어떻게 했을까?
 
-default_random_engine dre;
-uniform_int_distribution<> uid;
-
-class Dog {
-public:
-	Dog() : id{ uid(dre) } {
-		name = "Dog"s;
-		name += to_string(cnt);
-		
-		++cnt;
-	}
-
-private:
-	int id;			// 4
-	string name;	// 24 (28 - debug) -x64
-
-	static int cnt; // 4 - 클래스 공통
-
-	friend ostream& operator<<(ostream& os, const Dog& dog);
-};
-
-int Dog::cnt = { 1 };
-
-ostream& operator<<(ostream& os, const Dog& dog)
-{
-	os << "이름: " << dog.name << ", 아이디: " << dog.id;
-	return os;
+void jump() {
+	cout << "점프" << endl;
 }
+void slide() {
+	cout << "슬라이드" << endl;
+}
+void (*left_function)() = jump;
 
-Dog dogs[10000];
+void left()
+{
+	left_function();
+}
 
 int main()
 {
+	// 10번에 한번은 기능을 바꾼다.
 
-	ifstream in{ "Dog 만객체.txt",ios::binary };
+	int cnt{};
+	while (true) {
+		left();
+		this_thread::sleep_for(500ms);
+		++cnt;
+		if (cnt == 10) {
+			left_function = slide;
+		}
+	}
 	
-	Dog* dogs = new Dog[10000]; // 같은 타입의 포인터로 받아야됨
-
-	in.read((char*)dogs, sizeof(Dog) * 10000);
-
-	for (int i = 0; i < 10000; i++)
-		cout << dogs[i] << endl;
 	//save("소스.cpp");
 }
 
