@@ -309,7 +309,9 @@ int main()
 
 	}
 	save("소스.cpp");
-}===============================================
+}
+
+===============================================
 저장시간 : 2021-03-11 오후 3:18:16 목요일
 ===============================================
 //--------------------------------------------------------------------
@@ -337,3 +339,66 @@ int main()
 	cout << "경과시간(밀리초) - " << chrono::duration_cast<chrono::milliseconds>(d).count() << endl;
 	save("소스.cpp");
 }
+
+===============================================
+저장시간 : 2021-03-16 오후 1:50:38 화요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 3월 16일 화요일            (3주 1일)
+//
+// Dog 만들고 저장하고 읽어 정렬하기 시작할 것
+// callable type
+//
+// 앞으로 사용할 관찰용 class 만들어 두기
+//-----------------------------------------------------------------
+
+#include <iostream>
+#include <random>
+#include <string>
+#include "save.h"
+using namespace std;
+
+// [문제] Dog 객체를 만들어 파일에 저장하고 다시 읽어 정렬해 본다.
+// sizeof(Dog)를 확인하자
+
+default_random_engine dre;
+uniform_int_distribution<> uid;
+
+class Dog {
+public:
+	Dog() : id{ uid(dre) } {
+		name = "Dog"s;
+		name += to_string(cnt);
+		
+		++cnt;
+	}
+
+private:
+	int id;			// 4
+	string name;	// 24 (28 - debug) -x64
+
+	static int cnt; // 4 - 클래스 공통
+
+	friend ostream& operator<<(ostream& os, const Dog& dog);
+};
+
+int Dog::cnt = { 1 };
+
+ostream& operator<<(ostream& os, const Dog& dog)
+{
+	os << "이름: " << dog.name << ", 아이디: " << dog.id;
+	return os;
+}
+
+int main()
+{
+	Dog dogs[10];
+
+	for (const Dog& dog : dogs)
+		cout << dog << endl;
+
+	save("소스.cpp");
+}
+
+
+

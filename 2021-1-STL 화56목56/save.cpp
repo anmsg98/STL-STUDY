@@ -29,3 +29,12 @@ void save(std::string_view fileName)
 		out.put(c);
 	// RAII
 }
+
+/*using namespace std::chrono;
+
+	auto b = steady_clock::now();
+
+	this_thread::sleep_for(333ms);
+
+	cout << "경과시간(밀리초) - "
+		<< duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;*/
