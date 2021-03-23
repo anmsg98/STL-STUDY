@@ -497,6 +497,101 @@ int main()
 	save("소스.cpp");
 }
 
+=============================================
+저장시간 : 2021-03-18 오후 1:53:09 목요일
+=============================================
+//------------------------------------------------------------------
+// 2021 1학기 STL 화56 목56     - 3월 18일 목요일 (3주 2일)
+// 
+// 호출 가능한 타입 - callable type
+//
+// 앞으로 사용할 관찰용 class 만들어 두기
+//------------------------------------------------------------------
+
+#include <iostream>
+#include <thread>
+#include "save.h"
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+void jump(void)
+{
+    cout <<"점프합니다." << endl;
+}
+void slide(void)
+{
+    cout << "슬라이드합니다." << endl;
+}
+
+int main()
+{
+    void (*f)(void); // 호출 가능 타입
+    f = jump;
+    f();
+    cout << "main의 번지수는 " << main << endl;
+    cout << "f의 번지수는 " << f << endl;
+    cout << "변수 f의 번지수는 " << &f << endl;
+    int a;
+    cout << "스택에 있는 a의 번지수는 " << &a << endl;
+
+    f = slide;
+    f();
+    cout << "f의 번지수는 " << f << endl;
+    save("STL.cpp");
+
+}
+------------------------------------------------------------------------
+#include <iostream>
+#include <functional>
+#include "save.h"
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+// 1. 일반함수
+void f(int) 
+{
+    cout << "일반함수를 호출했다" << endl;
+}
+
+// 2. 함수객체
+class Test {
+public:
+    void operator()(int) {
+        cout << "()연산자를 오버로딩한 클래스를 호출했다 " << endl;
+    }
+
+    void mf(int) {
+        cout << "멤버펑션 호출 " << endl;
+    }
+};
+
+// 3. 람다
+auto lambda = [](int) {
+    cout << "람다를 호출했다" << endl;
+};
+
+//[문제] : callable type에 각 함수를 저장했다 호출해보자
+
+int main()
+{
+    function<void(int)> ct; //통일된 타입 서로다른함수를 가리킬 수 있다.
+
+    ct = f;
+    ct(1);
+
+    Test t;
+    ct = t;
+    ct(2);
+
+    ct = [](int) {
+        cout << "람다를 호출했다" << endl;
+    };
+    ct(3);
+
+    
+    save("STL.cpp");
+}
+
 ===============================================
 저장시간 : 2021-03-23 오후 2:06:01 화요일
 ===============================================
