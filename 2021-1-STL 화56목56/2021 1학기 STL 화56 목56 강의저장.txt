@@ -497,5 +497,115 @@ int main()
 	save("소스.cpp");
 }
 
+===============================================
+저장시간 : 2021-03-23 오후 2:06:01 화요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 3월 23일 화요일            (4주 1일)
+//
+// 앞으로 사용할 관찰용 class(자원을 확보하는) 만들어 두기
+//-----------------------------------------------------------------
+
+#include <iostream>
+#include <random>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// [문제] int num을 인자로 받아 메모리를 num바이트 할당받아
+// 임의의 알파벳  소문자로 채우는 클래스 String을 코딩
+
+mt19937 dre;
+uniform_int_distribution<> uid{ 'a','z' };
 
 
+class String {
+public:
+	String(int num) : num{ num }, p{ new char[num] }{
+		for (int i = 0; i < num; ++i)
+			p[i] = uid(dre);
+	}
+	
+	~String(){
+		delete[] p;
+	}
+
+	String(const String& other) :num{ other.num }, p{ new char[num] } {
+		//cout << "복사";		// switch로 출력 조절
+		memcpy(p, other.p, num);
+	}
+
+	String& operator=(const String& other) {
+		//cout << "할당" << endl;
+		if (this != &other) {
+			delete[] p;
+			num = other.num;
+			p = new char[num];
+			memcpy(p, other.p, num);
+		}
+
+		return *this;
+	}
+
+	size_t size() const {
+		return num;
+	}
+
+	void sortAscending() {
+		sort(p, p + num);
+	};
+
+private:
+	int num{};
+	char* p{ nullptr };
+
+	friend ostream& operator<<(ostream&, const String&);
+};
+
+ostream& operator << (ostream& os, const String& s) {
+	for (int i = 0; i < s.num; ++i) {
+		os << s.p[i];
+	}
+	return os;
+}
+
+int main()
+{
+	String s[10]{ 20,21,3,18,7,8,3,12,33,55 };
+
+	sort(begin(s), end(s), [](const String& a, const String& b) {
+		return a.size() < b.size();
+		});
+	
+	// [문제]각 String을 알파벳 오름차순으로 정렬하라
+	for (String& s : s)
+		s.sortAscending();
+	
+	for (String& s : s)
+		cout << s << endl;
+
+	save("소스.cpp");
+}
+------------------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// [문제] "소스.cpp"에 있는 단어를 저장한 후
+// 오름차순으로 정렬하여 출력하라.
+
+int main()
+{
+	ifstream in{ "소스.cpp" };
+	vector<string> v{ istream_iterator<string>{in},{} };
+	sort(v.begin(), v.end());
+	copy(v.begin(), v.end(), ostream_iterator<string>(cout, "\t"));
+
+	save("소스.cpp");
+}
