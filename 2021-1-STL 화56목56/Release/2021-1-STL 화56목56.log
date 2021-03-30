@@ -1,9 +1,5 @@
 ﻿  소스.cpp
-C:\Users\User\Desktop\STL\2021-1-STL 화56목56\소스.cpp(49,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\User\Desktop\STL\2021-1-STL 화56목56\소스.cpp(52,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다.
-  235 of 375 functions (62.7%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    22 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  2021-1-STL 화56목56.vcxproj -> C:\Users\User\Desktop\STL\Release\2021-1-STL 화56목56.exe
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(35,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(124,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\소스.cpp(21,14): error C2660: 'std::vector<int,std::allocator<int>>::pop_back': 함수는 1개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\vector(1328,10): message : 'std::vector<int,std::allocator<int>>::pop_back' 선언을 참조하십시오.
