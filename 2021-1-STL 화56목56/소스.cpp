@@ -1,62 +1,23 @@
 //-----------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 3월 25일 목요일            (4주 2일)
+// 2021. 1학기 STL 화56 목56  - 3월 30일 화요일            (5주 1일)
 //
-// Containers are objects that sotre other objects.
-//
-// Sequence Containers
-//	- array
-//	- vector
-//	- deque
-//	- forward_list
-//	- list
-//
-// 관찰 class에 이동기능 코딩 - sort 함수로 확인
+// String.h를 다운받아 공통된 관찰을 해 본다.
 //-----------------------------------------------------------------
 #include <iostream>
+#include <array>
+#include <algorithm>
 #include "save.h"
 #include "String.h"
 using namespace std;
 
-// [실습] main이 실행될 수 있게 Array을 프로그램 하라.
-template <typename T, int N>
-class Array {
-	T data[N]{ 0 };
-public:
-	Array() {
-	}
-	size_t size() const {
-		return N;
-	}
-	T operator[](int idx) const{
-		return data[idx];
-	}
-
-	T& operator[](int idx) {
-		return data[idx];
-	}
-	
-	T* begin() {
-		return data;
-	}
-
-	T* end() {
-		return data + N;
-	}
-};
-
+// [문제] STL 표준 컨테이너에 String을 원소(element)로 넣어본다.
+// 사전 순서(lexicographical) 상 오름차순으로 정렬해보자
 int main()
-{
-	Array<String, 10> a;
+{	
+	array<String, 3> words{ "다음주", "과제를", "준비하겠어요" };
 	
-	for (int i = 0; i < a.size(); ++i)
-		a[i] = i;
-	
-	for (int i = 0; i < a.size(); ++i)
-		cout << a[i] << endl;
+	sort(words.begin(), words.end(), [](const String& a, const String& b) {
+		return a.getData() < b.getData(); });
 
-	cout << "======반복자로 출력======" << endl;
-	for (auto i = a.begin(); i != a.end(); ++i)
-		cout << *i << endl;
-	
-	save("소스.cpp");
+	//save("소스.cpp");
 }
