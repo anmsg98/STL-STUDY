@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include <random>
+#include <string>
 
 using std::cout;
 using std::endl;
 
-//#define 관찰			// 이 주석을 풀면 special member의 동작을 알 수 있다.
+#define 관찰		// 이 주석을 풀면 special member의 동작을 알 수 있다.
 
 std::default_random_engine dre;
 std::uniform_int_distribution<> uidAlpha{ 'a', 'z' };
@@ -61,7 +62,7 @@ public:
 	// 복사할당연산자
 	String& operator=(const String& other) {
 		if (this != &other) {
-			this->~String();
+			delete[] p;		//this->~String();
 			num = other.num;
 			p = new char[num];
 			memcpy(p, other.p, num);
@@ -104,6 +105,11 @@ public:
 	
 	size_t size() const {
 		return num;
+	}
+
+	// 확보한 자원을 std::string처럼 이용할 수 있게 하자.
+	std::string getString() const {
+		return std::string(p, p + num);
 	}
 
 private:
