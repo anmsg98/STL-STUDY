@@ -12,7 +12,7 @@
 using std::cout;
 using std::endl;
 
-#define 관찰		// 이 주석을 풀면 special member의 동작을 알 수 있다.
+//#define 관찰		// 이 주석을 풀면 special member의 동작을 알 수 있다.
 
 std::default_random_engine dre;
 std::uniform_int_distribution<> uidAlpha{ 'a', 'z' };
