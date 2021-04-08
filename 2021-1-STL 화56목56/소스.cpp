@@ -1,31 +1,25 @@
 //-----------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 4월 1일 목요일            (5주 2일)
+// 2021. 1학기 STL 화56 목56  - 4월 8일 목요일            (6주 2일)
 //
-// - vector
+// deque
+//
+// 중간시험 - 4월 22일 (목요일)
 //-----------------------------------------------------------------
 #include <iostream>
-#include <vector>
-#include <fstream>
+#include <deque>
 #include "save.h"
 #include "String.h"
 using namespace std;
 
-// [문제] "소스.cpp"를 읽어 vector에 저장한 후 
-// 거꾸로 화면에 출력하라.
 int main()
 {	
-	ifstream in{ "소스.cpp" };
+	deque<String> d;
+
+	d.emplace(d.end(), "1");
+	d.emplace(d.end(), "2");
+	d.emplace(d.end(), "3");
+	for (const String& s : d)
+		cout << s << endl;
 	
-	vector<char> v;
-
-	char c;
-	while (in >> c) {
-		v.push_back(c);
-	}
-	for (auto i = v.rbegin(); i != v.rend(); ++i) {
-		cout << *i;
-	}
-
-	cout << endl << endl;
 	//save("소스.cpp");
 }
