@@ -66,7 +66,7 @@ int main()
 	cout << "점수의 평균값: " << aver / 1000000.0 << endl << endl;
 	
 	/*3번*/
-	ofstream out("바이트 수가 500개.txt", ios::binary);
+	ofstream out("바이트 수가 500개"s, ios::binary);
 	for (auto i : a) {
 		if (i.num == 500) {
 			out.write((char*)&i, sizeof(Player));
