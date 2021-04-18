@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Huge File
+Player 100만개
+*.vs
