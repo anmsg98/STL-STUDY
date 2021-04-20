@@ -1249,4 +1249,89 @@ int main()
 	vector<String> v{ 10,20,30 };
 	print(span<String> {v});
 	save("소스.cpp");
+}===============================================
+저장시간 : 2021-04-20 오후 1:57:18 화요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 4월 20일 화요일            (8주 1일)
+//
+// 반복자 : 책 31~41, 123~136, Design Pattern 중 iterator pattern
+// 반복자는 포인터를 추상화한 것이다.
+// 반복자처럼 행동하는 것은 반복자이다.
+// 반복자는 컨테이너가 제공하는 인터페이스이다.
+//-----------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+int main()
+{	
+	String s{ "1234567890" };
+
+	for (auto i = s.begin(); i != s.end(); ++i)
+		cout << *i << ' ';
+	cout << endl;
+	
+	save("소스.cpp");
+	save("String.h");
+}
+// ----------------------------------------------------------------------------
+// String.h - STL 내부 동작을 관찰하기 위해 만든 자원을 확보하는 클래스
+//
+// 2021. 3. 30									Programmed by wulong
+//-----------------------------------------------------------------------------
+	// 2021. 4. 20
+	char* begin() {
+		return p;
+	}
+	// 2021. 4. 20
+	char* end() {
+		return p + num;
+	}
+--------------------------------------------------------------------------------------------------------------------
+// [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
+
+template <typename Iter>
+void showIteratorCategory(const Iter&)
+{
+	cout << typeid(iterator_traits<Iter>::iterator_category).name() << endl;
+}
+
+int main()
+{	
+	vector<int> v;
+
+	auto p = v.begin();
+
+	showIteratorCategory(p);
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <forward_list>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
+
+template <typename Iter>
+void showIteratorCategory(const Iter&)
+{
+	cout << typeid(iterator_traits<Iter>::iterator_category).name() << endl;
+}
+
+int main()
+{	
+	showIteratorCategory(istream_iterator<char>{cin});
+	showIteratorCategory(ostream_iterator<char>{cout});
+	showIteratorCategory(forward_list<int>::iterator());
+	showIteratorCategory(list<int>::iterator());
+	showIteratorCategory(vector<int>::iterator());
+
+	save("소스.cpp");
 }

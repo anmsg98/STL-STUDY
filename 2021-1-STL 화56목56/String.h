@@ -1,4 +1,4 @@
-// ---------------------------------------------------------------------------- -
+// ----------------------------------------------------------------------------
 // String.h - STL 내부 동작을 관찰하기 위해 만든 자원을 확보하는 클래스
 //
 // 2021. 3. 30									Programmed by wulong
@@ -16,8 +16,41 @@ using std::endl;
 std::default_random_engine dre;
 std::uniform_int_distribution<> uidAlpha{ 'a', 'z' };
 
+// 2021. 4. 20
+// String이 외부에 제공하는 반복자
+class String_iterator 
+{
+	char* p{ nullptr };
+public:
+	String_iterator(char* p) : p{ p } {}
+	
+	int operator-(const String_iterator& rhs)const {
+		return p - rhs.p;
+	}
+	bool operator!=(const String_iterator& rhs)const {
+		return p != rhs.p;
+	}
+	bool operator==(const String_iterator& rhs)const {
+		return p == rhs.p;
+	}
+	bool operator<(const String_iterator& rhs)const {
+		return p < rhs.p;
+	}
+	String_iterator& operator++() {
+		++p;
+		return *this;
+	}
+	String_iterator& operator--() {
+		--p;
+		return *this;
+	}
+};
+
 class String
 {
+	using iterator = String_iterator;
+	using value_type = char;
+
 public:
 	String() : num{}, p{}
 	{
@@ -125,12 +158,20 @@ public:
 	{
 		return std::string(p, p + num);
 	}
-
+	// 2021. 4. 20
+	iterator begin() {
+		return iterator{ p };
+	}
+	// 2021. 4. 20
+	iterator end() {
+		return iterator{ p + num };
+	}
+	
 private:
 	size_t num;							// 확보한 자원의 수
 	char* p;							// 확보한 자원의 위치
-
 	friend std::ostream& operator<<(std::ostream&, const String&);
+	
 };
 
 std::ostream& operator<<(std::ostream& os, const String& s)
