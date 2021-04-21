@@ -8,22 +8,24 @@
 //-----------------------------------------------------------------
 
 #include <iostream>
-#include <list>
+#include <vector>
+#include <string_view>
+#include <fstream>
+#include <random>
+#include <algorithm>
 #include "save.h"
-#include "String.h"
 using namespace std;
 
+// [문제] 파일 "int 100개.txt"에 바이너리로 저장되어있는 정수 100개가 있다.
+// 읽은 정수 100개를 내림차순으로 정렬한 후 출력.
 
 int main()
-{	
-	list<String> c{ 1,3,5,7,9,2,4,6,8,10 };
-	c.sort([](const String& a, const String& b) {
-		return a.size() < b.size();
-		});
-	//c.reverse();	// 리스트의 순서를 반대로 바꿔줌
-	// 전체를 순회하며 출력하자
-	for (const String& s : c)
-		cout << s << endl;
+{
+	int a[100];
+	ifstream in{ "int 100개다.txt", ios::binary };
+	in.read((char*)&a, 100 * sizeof(int));
+	sort(begin(a), end(a), greater<int>());
 
-	//save("소스.cpp");
+	for (int n : a)
+		cout << n << endl;
 }
