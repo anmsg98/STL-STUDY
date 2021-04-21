@@ -8,21 +8,14 @@
 //-----------------------------------------------------------------
 #include <iostream>
 #include <vector>
-<<<<<<< HEAD
 #include <string_view>
 #include <fstream>
 #include <random>
 #include <algorithm>
-=======
 #include <iterator>
-#include <forward_list>
-#include <list>
-#include <string>
->>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86
 #include "save.h"
 using namespace std;
 
-<<<<<<< HEAD
 // [문제] 파일 "int 100개.txt"에 바이너리로 저장되어있는 정수 100개가 있다.
 // 읽은 정수 100개를 내림차순으로 정렬한 후 출력.
 
@@ -36,7 +29,6 @@ int main()
 	for (int n : a)
 		cout << n << endl;
 }
-=======
 // [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
 
 template <typename Iter>
@@ -53,4 +45,3 @@ int main()
 		
 	//save("소스.cpp");
 }
->>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86

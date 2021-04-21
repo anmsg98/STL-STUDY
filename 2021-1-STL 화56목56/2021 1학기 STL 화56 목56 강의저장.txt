@@ -1249,7 +1249,6 @@ int main()
 	vector<String> v{ 10,20,30 };
 	print(span<String> {v});
 	save("소스.cpp");
-<<<<<<< HEAD
 }
 ===============================================
 저장시간 : 2021-04-15 오후 1:36:08 목요일
@@ -1267,26 +1266,33 @@ int main()
 #include <iostream>
 #include <deque>
 #include <algorithm>
-=======
-}===============================================
-저장시간 : 2021-04-20 오후 1:57:18 화요일
-===============================================
-//-----------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 4월 20일 화요일            (8주 1일)
-//
-// 반복자 : 책 31~41, 123~136, Design Pattern 중 iterator pattern
-// 반복자는 포인터를 추상화한 것이다.
-// 반복자처럼 행동하는 것은 반복자이다.
-// 반복자는 컨테이너가 제공하는 인터페이스이다.
-//-----------------------------------------------------------------
-#include <iostream>
->>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86
 #include "save.h"
 #include "String.h"
 using namespace std;
 
 int main()
-<<<<<<< HEAD
+{
+    deque<int> d{ 1,5,3,9,7 };===============================================
+저장시간 : 2021-04-15 오후 1:36:08 목요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 4월 15일 화요일            (7주 2일)
+//
+// 1. sequence 컨테이너
+//  원소를 삭제/추가하는 동작이 0(1)
+//    - list
+//    - forword_list
+//
+// 중간 시험 4/22일 
+//-----------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+int main()
 {
     deque<int> d{ 1,5,3,9,7 };
     sort(d.begin(),d.end());
@@ -1331,60 +1337,10 @@ int main()
 #include <iterator>
 #include <initializer_list>
 #include <fstream>
-=======
-{	
-	String s{ "1234567890" };
-
-	for (auto i = s.begin(); i != s.end(); ++i)
-		cout << *i << ' ';
-	cout << endl;
-	
-	save("소스.cpp");
-	save("String.h");
-}
-// ----------------------------------------------------------------------------
-// String.h - STL 내부 동작을 관찰하기 위해 만든 자원을 확보하는 클래스
-//
-// 2021. 3. 30									Programmed by wulong
-//-----------------------------------------------------------------------------
-	// 2021. 4. 20
-	char* begin() {
-		return p;
-	}
-	// 2021. 4. 20
-	char* end() {
-		return p + num;
-	}
---------------------------------------------------------------------------------------------------------------------
-// [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
-
-template <typename Iter>
-void showIteratorCategory(const Iter&)
-{
-	cout << typeid(iterator_traits<Iter>::iterator_category).name() << endl;
-}
-
-int main()
-{	
-	vector<int> v;
-
-	auto p = v.begin();
-
-	showIteratorCategory(p);
-	save("소스.cpp");
-}
---------------------------------------------------------------------------------------------------------------------
-#include <iostream>
-#include <vector>
-#include <iterator>
-#include <forward_list>
-#include <list>
->>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86
 #include "save.h"
 #include "String.h"
 using namespace std;
 
-<<<<<<< HEAD
 //[문제] "소스.cpp" 파일을 리스트를 사용해 읽어라
 // 거꾸로 찍어라
 
@@ -1473,7 +1429,211 @@ void print(const list<int>& cont)
 	for (int n : cont)
 		cout << n << " ";
 	cout << endl;
-=======
+}
+    sort(d.begin(),d.end());
+
+    // 전체를 반복자로 순회하며 출력하자
+    for (int n :d){
+        cout << n << " ";
+    }
+    cout << endl;
+
+    save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+//[문제] "소스.cpp" 파일을 리스트를 사용해 읽어라
+// 거꾸로 찍어라
+
+int main()
+{
+    ifstream in("소스.cpp", ios::binary);
+    list<char> con(istreambuf_iterator<char>{in}, {});
+
+    reverse(con.begin(), con.end());
+    //c.reverse(); // 
+
+    for (auto i = con.crbegin(); i != con.crend(); ++i)
+    {
+        cout << *i;
+    }
+
+    // 전체를 반복자로 순회하며 출력하자
+    for (const char s : con){
+        cout << s ;
+    }
+    cout << endl;
+
+    save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <iterator>
+#include <initializer_list>
+#include <fstream>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+//[문제] "소스.cpp" 파일을 리스트를 사용해 읽어라
+// 거꾸로 찍어라
+
+int main()
+{
+    ifstream in("소스.cpp", ios::binary);
+    list<char> con(istreambuf_iterator<char>{in}, {});
+    copy(con.cbegin(), con.cend(), ostream_iterator<char>{cout});
+
+
+    save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+//[문제] "소스.cpp"d에 소문자는 몇글자인지 출력하라
+
+int main()
+{
+    ifstream in("소스.cpp", ios::binary);
+    list<char> con(istreambuf_iterator<char>{in}, {});
+
+    cout << "소문자 갯수는 : " << count_if(con.cbegin(), con.cend(), [](char c) {return islower(c); }) << endl;
+    
+
+    save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+//[문제] "소스.cpp"에 using이라는 단어가 있나
+// 있다면 몇 번째 단어인가?
+
+int main()
+{
+    ifstream in("소스.cpp", ios::binary);
+    list<string> con(istream_iterator<string>{in}, {});
+
+    auto p = find(con.cbegin(), con.cend(), "using"s);
+
+    if (p != con.end()) {
+        cout << distance(con.cbegin(), p) + 1 << " 번째 단어 입니다" << endl; ;
+    }
+    else {
+        cout << " 찾는 원소가 없습니다. " << endl;
+    }
+
+    save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+void print(const list<int> & cont)
+{
+	for (int n : cont)
+		cout << n << " ";
+	cout << endl;
+}
+
+int main()
+{
+	list<int> con1{ 5,7,3,1,9 };
+	list<int> con2{ 10,4,8,6,2 };
+
+//[문제] con1 과 con2에 있는 내용을 con3에 merge해라
+
+	list<int> con3;
+	con3.merge(con1);
+	con3.merge(con2);
+
+	print(con1);
+	print(con2);
+	print(con3);
+
+   save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+void print(const list<int>&);
+int main()
+{
+	list<int> toDo{ 3,5,1,9,7,7,7,7,7,7,7,7 };
+
+	toDo.sort();
+	toDo.unique();
+	print(toDo);
+	
+	save("소스.cpp");
+}
+
+void print(const list<int>& cont)
+{
+	for (int n : cont)
+		cout << n << " ";
+	cout << endl;
+}
+===============================================
+저장시간 : 2021-04-20 오후 1:57:18 화요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 4월 20일 화요일            (8주 1일)
+//
+// 반복자 : 책 31~41, 123~136, Design Pattern 중 iterator pattern
+// 반복자는 포인터를 추상화한 것이다.
+// 반복자처럼 행동하는 것은 반복자이다.
+// 반복자는 컨테이너가 제공하는 인터페이스이다.
+//-----------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <iterator>
+#include <initializer_list>
+#include <fstream>
+{	
+	String s{ "1234567890" };
+
+	for (auto i = s.begin(); i != s.end(); ++i)
+		cout << *i << ' ';
+	cout << endl;
+	
+	save("소스.cpp");
+	save("String.h");
+}
+// ----------------------------------------------------------------------------
+// String.h - STL 내부 동작을 관찰하기 위해 만든 자원을 확보하는 클래스
+//
+// 2021. 3. 30									Programmed by wulong
+//-----------------------------------------------------------------------------
+	// 2021. 4. 20
+	char* begin() {
+		return p;
+	}
+	// 2021. 4. 20
+	char* end() {
+		return p + num;
+	}
+--------------------------------------------------------------------------------------------------------------------
+// [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
+
+template <typename Iter>
+void showIteratorCategory(const Iter&)
+{
+	cout << typeid(iterator_traits<Iter>::iterator_category).name() << endl;
+}
+
+int main()
+{	
+	vector<int> v;
+
+	auto p = v.begin();
+
+	showIteratorCategory(p);
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <forward_list>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+
 // [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
 
 template <typename Iter>
@@ -1491,5 +1651,5 @@ int main()
 	showIteratorCategory(vector<int>::iterator());
 
 	save("소스.cpp");
->>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86
+
 }
