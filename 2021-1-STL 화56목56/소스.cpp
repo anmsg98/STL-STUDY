@@ -1,21 +1,28 @@
 //-----------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 4월 13일 화요일            (7주 1일)
+// 2021. 1학기 STL 화56 목56  - 4월 20일 화요일            (8주 1일)
 //
-// 1. sequence 컨테이너
-//	원소를 삭제/추가 하는 동작이 0(1)
-//	- list
-//	- forward_list
+// 반복자 : 책 31~41, 123~136, Design Pattern 중 iterator pattern
+// 반복자는 포인터를 추상화한 것이다.
+// 반복자처럼 행동하는 것은 반복자이다.
+// 반복자는 컨테이너가 제공하는 인터페이스이다.
 //-----------------------------------------------------------------
-
 #include <iostream>
 #include <vector>
+<<<<<<< HEAD
 #include <string_view>
 #include <fstream>
 #include <random>
 #include <algorithm>
+=======
+#include <iterator>
+#include <forward_list>
+#include <list>
+#include <string>
+>>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86
 #include "save.h"
 using namespace std;
 
+<<<<<<< HEAD
 // [문제] 파일 "int 100개.txt"에 바이너리로 저장되어있는 정수 100개가 있다.
 // 읽은 정수 100개를 내림차순으로 정렬한 후 출력.
 
@@ -29,3 +36,21 @@ int main()
 	for (int n : a)
 		cout << n << endl;
 }
+=======
+// [문제] 반복자를 인자로 받은 함수는 그것이 무엇인지를 어떻게 알까?
+
+template <typename Iter>
+void showIteratorCategory(const Iter&)
+{
+	cout << typeid(iterator_traits<Iter>::iterator_category).name() << endl;
+}
+
+int main()
+{	
+	String s{ "1357924680" };
+	
+	sort(s.begin(), s.end());
+		
+	//save("소스.cpp");
+}
+>>>>>>> e65a5bab79118c37b79ff95bdc4497cad2dbcd86
