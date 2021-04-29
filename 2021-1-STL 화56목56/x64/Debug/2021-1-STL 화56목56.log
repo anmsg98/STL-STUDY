@@ -1,1 +1,20 @@
-﻿  2021-1-STL 화56목56.vcxproj -> C:\Users\wjstj\OneDrive\바탕 화면\STL\x64\Debug\2021-1-STL 화56목56.exe
+﻿  소스.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\algorithm(7571,45): error C2676: 이항 '-': 'const _RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\algorithm(7576): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::sort<_RanIt,std::less<void>>(const _RanIt,const _RanIt,_Pr)'에 대한 참조를 확인하세요.
+          with
+          [
+              _RanIt=String::iterator,
+              _Pr=std::less<void>
+          ]
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\소스.cpp(19): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::sort<String::iterator>(const _RanIt,const _RanIt)'에 대한 참조를 확인하세요.
+          with
+          [
+              _RanIt=String::iterator
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\algorithm(7571,5): error C2672: '_Sort_unchecked': 일치하는 오버로드된 함수가 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\algorithm(7571,1): error C2780: 'void std::_Sort_unchecked(_RanIt,_RanIt,conditional_t<std::_Is_from_primary<std::iterator_traits<remove_cv<remove_reference<_Ty>::type>::type>>,std::incrementable_traits<remove_cv<remove_reference<_Ty>::type>::type>,std::iterator_traits<remove_cv<remove_reference<_Ty>::type>::type>>::difference_type,_Pr)': 인수가 4개 있어야 하는데 3개를 사용했습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\algorithm(7537): message : 'std::_Sort_unchecked' 선언을 참조하십시오.

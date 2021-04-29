@@ -1653,3 +1653,66 @@ int main()
 	save("소스.cpp");
 
 }
+===============================================
+저장시간 : 2021-04-29 오후 2:40:25 목요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 4월 29일 목요일            (9주 2일)
+//
+// Container - 제네릭 클래스, String( [c][c][c]...), begin(), end()
+// Iterator - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+//-----------------------------------------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// [문제] String_iterator에게 "너는 어떤 종류의 반복자니?"라고 물어봐라.
+
+int main()
+{
+	cout << "너는 어떤 종류의 반복자니?" << endl;
+	cout << typeid(iterator_traits<String_iterator>::iterator_category).name() << endl;
+	
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+template<typename Iter, typename Value> // 제네릭함수(어떠한 변수가 들어가도 상관 없음)
+Iter my_find(Iter begin, Iter end, Value c) {
+	for (; begin != end; ++begin)
+		if (*begin == c)
+			return begin;
+
+	return end;
+}
+
+int main()
+{
+	String s{ "The quick brown fox jumps over the lazy dog" };
+	// [문제] s에 찾는 문자가 있는지 알려주자.
+	// 몇번째 원소인지 또는 못찾았는지 알려주자.
+	// 이 프로그램이 문제없이 실행되도록 함수를 작성
+	save("소스.cpp");
+	cout << "찾는 글자를 입력하세요" << endl;
+	while (true) {
+		char c;
+		cout << "글자를 입력하세요: ";
+		cin >> c;
+		auto p = my_find(s.begin(), s.end(), c);
+		if (p != s.end())
+			cout << c << "는 " << distance(s.begin(), p) + 1 << "번째 글자입니다" << endl;
+		else
+			cout << "없는 글자입니다" << endl;
+		cout << endl;
+	}
+	
+}
