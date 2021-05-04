@@ -1,12 +1,7 @@
 ﻿  소스.cpp
 C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(22,14): warning C4996: 'std::iterator<std::random_access_iterator_tag,char,ptrdiff_t,char *,char &>': warning STL4015: The std::iterator class template (used as a base class to provide typedefs) is deprecated in C++17. (The <iterator> header is NOT deprecated.) The C++ Standard has never required user-defined iterators to derive from std::iterator. To fix this warning, stop deriving from std::iterator and start providing publicly accessible typedefs named iterator_category, value_type, difference_type, pointer, and reference. Note that value_type is required to be non-const, even for constant iterators. You can define _SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING or _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS to acknowledge that you have received this warning.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29333\include\xutility(6006,1): message : 'std::iterator' 선언을 참조하십시오.
-C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(134,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(223,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(276,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다.
-  1 of 236 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  2021-1-STL 화56목56.vcxproj -> C:\Users\User\Desktop\STL\Release\2021-1-STL 화56목56.exe
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(147,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(236,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\String.h(296,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\User\Desktop\STL\2021-1-STL 화56목56\소스.cpp(20,38): error C2760: 구문 오류: ')'을(는) 예기치 않은 토큰입니다. 필요한 토큰은 '식'입니다.

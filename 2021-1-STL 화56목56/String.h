@@ -2,6 +2,7 @@
 // String.h - STL 내부 동작을 관찰하기 위해 만든 자원을 확보하는 클래스
 //
 // 2021. 3. 30									Programmed by wulong
+// 2021. 4.		iterator 추가
 //-----------------------------------------------------------------------------
 #pragma once
 #include <iostream>
@@ -10,7 +11,6 @@
 
 using std::cout;
 using std::endl;
-
 //#define 관찰			// 이 주석을 풀면 special member의 동작을 알 수 있다.
 
 std::default_random_engine dre;
@@ -72,6 +72,19 @@ public:
 
 };
 
+// 2020. 05. 04.
+template<>
+struct std::iterator_traits<String_iterator>
+{
+	using iterator_concept = std::contiguous_iterator_tag;
+	using iterator_category = std::random_access_iterator_tag;
+	using ptrdiff_t = std::ptrdiff_t;
+	using pointer = char*;
+	using reference = char&;
+	using value_type = char;
+};
+
+
 // 2021. 04. 27.
 // String의 역방향 반복자 추가
 class String_reverse_iterator
@@ -118,8 +131,8 @@ private:
 class String
 {
 	using iterator = String_iterator;
-	using reverse_iterator = String_reverse_iterator;
 	using value_type = char;
+	using reverse_iterator = String_reverse_iterator;
 
 public:
 	String() : num{}, p{}
@@ -226,13 +239,20 @@ public:
 
 		return true;
 	}
-
+	/*void set(std::string& s) {
+		num = s.size();
+		p = new char[num];
+		for (int i = 0; i < s.size(); ++i)
+			p[i] = s[i];
+	}*/
 private:
 	size_t num;							// 확보한 자원의 수
 	char* p;							// 확보한 자원의 위치
 
 private:
 	friend std::ostream& operator<<(std::ostream&, const String&);
+	//2021. 05. 04.
+	/*friend std::istream& operator>>(std::istream&, String&);*/
 
 public:
 	size_t size() const
@@ -280,3 +300,11 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 	return os;
 }
+
+//std::istream& operator>>(std::istream& is, String& s)
+//{
+//	std::string str;
+//	is >> str;
+//	s.set(str);
+//	return is;
+//}
