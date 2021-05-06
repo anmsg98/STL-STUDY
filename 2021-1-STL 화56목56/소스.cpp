@@ -1,38 +1,29 @@
-//-----------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 5월 4일 화요일            (10주 1일)
+//-------------------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 5월 6일 목요일            (10주 2일)
 //
-// Container - 제네릭 클래스, String( [c][c][c]...), begin(), end()
-// Iterator - String_iterator, String_reverse_iterator
-// Algorithm - 제네릭 함수
-//-----------------------------------------------------------------
+// Sequnce ~
+// Associative Container - set / map	key/value
+// Unordered Associative ~
+//-------------------------------------------------------------------------
 #include <iostream>
-#include <vector>
-#include <list>
+#include <set>
+#include <fstream>
+#include <iterator>
 #include <algorithm>
+#include <string>
 #include "save.h"
 #include "String.h"
 using namespace std;
 
-// [문제] 반복자간의 거리를 계산하는 distance를 작성
-template<typename Iter>
-ptrdiff_t my_distance(Iter beg, Iter end)
-{
-	if (random_access_iterator_tag<Iter>)
-		return end - beg;
-	
-	int cnt{};
-	while (beg != end) {
-		++cnt;
-		++beg;
-	}
-	return cnt;
-}
+// [문제] "소스.cpp"의 단어를 읽어 오름차순으로 정렬한 후 출력
+// -set으로 해결해봅시다.
 int main()
 {
-	vector<int> v{ 1,2,3,4,5 };
-	cout << my_distance(v.begin(), v.end()) << endl;
-	list<int> cont{ 1,2,3,4,5 };
-	cout << my_distance(cont.begin(), cont.end()) << endl;
-	
-	save("소스.cpp");
+	multiset<char> s; // multi - 중복된 값을 허용	
+	ifstream in{ "소스.cpp" };
+	copy(istream_iterator<char>{in}, {}, inserter(s, s.begin()));
+	for (char s : s)
+		cout << s;
+	cout << endl;
+	//save("소스.cpp");
 }

@@ -2,7 +2,7 @@
 // String.h - STL 내부 동작을 관찰하기 위해 만든 자원을 확보하는 클래스
 //
 // 2021. 3. 30									Programmed by wulong
-// 2021. 4.		iterator 추가
+// 2021  4.			iterator 추가
 //-----------------------------------------------------------------------------
 #pragma once
 #include <iostream>
@@ -11,6 +11,7 @@
 
 using std::cout;
 using std::endl;
+
 //#define 관찰			// 이 주석을 풀면 special member의 동작을 알 수 있다.
 
 std::default_random_engine dre;
@@ -18,61 +19,78 @@ std::uniform_int_distribution<> uidAlpha{ 'a', 'z' };
 
 // 2021. 04. 20.
 // String이 외부에 제공하는 반복자
-class String_iterator : 
-	public std::iterator<std :: random_access_iterator_tag, char>
+class String_iterator // : public std::iterator<std::random_access_iterator_tag, char>
 {
-	char* p{ nullptr };
 public:
 	String_iterator() = default;
 	String_iterator(char* p) : p{ p } {}
-	
-	// 2021. 04. 29
-	// _ULast - _ULast
-	int operator-(const String_iterator& rhs) const {
+	~String_iterator() {}
+
+private:
+	char* p;
+
+public:
+	// [algorithm] _ULast - _UFirst
+	int operator-(const String_iterator& rhs) const
+	{
 		return p - rhs.p;
 	}
 
-	String_iterator operator+(int n) const {
-		return String_iterator{ p + n };
-	}
-
-	String_iterator operator-(int n) const {
+	String_iterator operator-(int n) const
+	{
 		return String_iterator{ p - n };
 	}
 
-	bool operator!=(const String_iterator& rhs) const {
-		return p != rhs.p;
+	String_iterator operator+(int n) const
+	{
+		return String_iterator{ p + n };
 	}
 
-	bool operator==(const String_iterator& rhs) const {
+	bool operator==(const String_iterator& rhs) const
+	{
 		return p == rhs.p;
 	}
 
-	bool operator<(const String_iterator& rhs) const {
+	bool operator!=(const String_iterator& rhs) const
+	{
+		return p != rhs.p;
+	}
+
+	bool operator<(const String_iterator& rhs) const
+	{
 		return p < rhs.p;
 	}
 
-	String_iterator& operator++() {
-		++p;
-		return *this;
+	bool operator>(const String_iterator& rhs) const
+	{
+		return p > rhs.p;
 	}
 
-	String_iterator& operator--() {
+	String_iterator& operator--()
+	{
 		--p;
+
 		return *this;
 	}
 
-	char& operator*() {
+	String_iterator& operator++()
+	{
+		++p;
+
+		return *this;
+	}
+
+	char& operator* ()
+	{
 		return *p;
 	}
 
-	char& operator*() const{
+	char& operator*() const
+	{
 		return *p;
 	}
-
 };
 
-// 2020. 05. 04.
 template<>
 struct std::iterator_traits<String_iterator>
 {
@@ -83,7 +101,6 @@ struct std::iterator_traits<String_iterator>
 	using reference = char&;
 	using value_type = char;
 };
-
 
 // 2021. 04. 27.
 // String의 역방향 반복자 추가
@@ -131,8 +148,8 @@ private:
 class String
 {
 	using iterator = String_iterator;
-	using value_type = char;
 	using reverse_iterator = String_reverse_iterator;
+	using value_type = char;
 
 public:
 	String() : num{}, p{}
@@ -230,29 +247,16 @@ public:
 #endif
 		return *this;
 	}
-	bool operator==(const String& rhs)const {
-		if (num != rhs.num)
-			return false;
-		for (int i = 0; i < num; ++i)
-			if (p[i] != rhs.p[i])
-				return false;
 
-		return true;
-	}
-	/*void set(std::string& s) {
-		num = s.size();
-		p = new char[num];
-		for (int i = 0; i < s.size(); ++i)
-			p[i] = s[i];
-	}*/
 private:
 	size_t num;							// 확보한 자원의 수
 	char* p;							// 확보한 자원의 위치
 
 private:
 	friend std::ostream& operator<<(std::ostream&, const String&);
-	//2021. 05. 04.
-	/*friend std::istream& operator>>(std::istream&, String&);*/
+
+	// 2021. 05. 04.
+	friend std::istream& operator>>(std::istream&, String&);
 
 public:
 	size_t size() const
@@ -264,6 +268,18 @@ public:
 	std::string getString() const
 	{
 		return std::string(p, p + num);
+	}
+
+	// 2021. 05. 04.
+	void set(const std::string& s)
+	{
+		num = s.size();
+		p = new char[num];
+
+		for (int i = 0; i < num; ++i)
+		{
+			p[i] = s[i];
+		}
 	}
 
 	// 2021. 04. 20.
@@ -289,6 +305,24 @@ public:
 	{
 		return reverse_iterator{ p };
 	}
+
+	bool operator==(const String& rhs)
+	{
+		if (num != rhs.num)
+		{
+			return false;
+		}
+
+		for (int i = 0; i < num; ++i)
+		{
+			if (p[i] != rhs.p[i])
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
 };
 
 std::ostream& operator<<(std::ostream& os, const String& s)
@@ -301,10 +335,12 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 	return os;
 }
 
-//std::istream& operator>>(std::istream& is, String& s)
-//{
-//	std::string str;
-//	is >> str;
-//	s.set(str);
-//	return is;
-//}
+std::istream& operator>>(std::istream& is, String& s)
+{
+	std::string str;
+
+	is >> str;
+	s.set(str);
+
+	return is;
+}

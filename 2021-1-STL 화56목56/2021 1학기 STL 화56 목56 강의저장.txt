@@ -1811,7 +1811,7 @@ size_t my_count_if(Iter beg, Iter end, Pred fn)
 int main()
 {
     ifstream in("소스.cpp", ios::binary);
-    vector<String> v(istream_iterator<string>{in}, {});
+    vector<String> v(istream_iterator<String>{in}, {});
     int cnt = my_count_if(v.begin(), v.end(), [](const String& s) {
         if (s.size() <= 4) {
             cout << s << '\t';
@@ -1822,4 +1822,115 @@ int main()
     cout << endl;
     cout << "길이가 4이하인 단어의 개수: " << cnt << endl;
 	//save("소스.cpp");
+}
+===============================================
+저장시간 : 2021-05-06 오후 1:48:45 목요일
+===============================================
+//-----------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 5월 6일 목요일            (10주 2일)
+//
+// Container - 제네릭 클래스, String( [c][c][c]...), begin(), end()
+// Iterator - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+//-----------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 distance를 작성
+template<typename Iter>
+ptrdiff_t my_distance(Iter beg, Iter end)
+{
+	// constexpr 대해서 찾아보고 공부해보기!
+	if constexpr (random_access_iterator<Iter>)
+		return end - beg;
+	else {
+		int cnt{};
+		while (beg != end) {
+			++cnt;
+			++beg;
+		}
+		return cnt;
+	}
+}
+
+int main()
+{
+	vector<int> v{ 1,2,3,4,5 };
+	cout << my_distance(v.end(), v.begin()) << endl;
+	list<int> cont{ 1,2,3,4,5 };
+	cout << my_distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// [문제] 컨테이너 원소를 다른 컨테이너로 복사한다.
+// 벡터의 원소를 화면에 복사(출력)한다.
+int main()
+{
+	vector<int> v{ 1,2,3,4,5 };
+	copy(v.begin(), v.end(), ostream_iterator<int>{cout, " "});
+	cout << endl;
+
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+template<class SrcIter, class DestIter>
+void my_copy(SrcIter beg, SrcIter end, DestIter dest)
+{
+	while (beg != end)
+		*dest++ = *beg++;
+}
+// [문제] 컨테이너 원소를 다른 컨테이너로 복사한다.
+// 알고리즘 - copy
+// 벡터에 있는 데이터를 다른 벡터에 복사한다.
+int main()
+{
+	vector<int> v1{ 1,2,3,4,5 };
+	vector<int> v2;
+	v2.reserve(50);
+	my_copy(v1.begin(), v1.end(), back_inserter(v2));
+
+	for (int n : v2)
+		cout << n << " ";
+	cout << endl;
+
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+// [문제] 키보드에서 단어를 읽어 오름차순으로 정렬하여 출력하시오!
+// -set으로 해결해봅시다.
+int main()
+{
+	set<string> s;	
+	copy(istream_iterator<string>{cin}, {}, inserter(s, s.begin()));
+	for (const string& s : s)
+		cout << s << " - ";
+	cout << endl;
+	save("소스.cpp");
+}
+--------------------------------------------------------------------------------------------------------------------
+// [문제] "소스.cpp"의 단어를 읽어 오름차순으로 정렬한 후 출력
+// -set으로 해결해봅시다.
+int main()
+{
+	multiset<string> s; // multi - 중복된 값을 허용	
+	ifstream in{ "소스.cpp" };
+	copy(istream_iterator<string>{in}, {}, inserter(s, s.begin()));
+	for (const string& s : s)
+		cout << s << "\n";
+	cout << endl;
+	save("소스.cpp");
 }
