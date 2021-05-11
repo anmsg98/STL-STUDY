@@ -1,29 +1,49 @@
 //-------------------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 5월 6일 목요일            (10주 2일)
+// 2021. 1학기 STL 화56 목56  - 5월 11일 화요일            (11주 1일)
 //
-// Sequnce ~
-// Associative Container - set / map	key/value
+// Sequence ~
+// Associative Container - set(281쪽) / map	key/value
 // Unordered Associative ~
+//
+// map - pair<key, value>
+//		연관배열로 사용한다. (통계처리에 유용)
 //-------------------------------------------------------------------------
 #include <iostream>
-#include <set>
-#include <fstream>
-#include <iterator>
-#include <algorithm>
+#include <map>		// key/value pair이고 key는 const
 #include <string>
+#include <vector>
 #include "save.h"
 #include "String.h"
 using namespace std;
 
-// [문제] "소스.cpp"의 단어를 읽어 오름차순으로 정렬한 후 출력
-// -set으로 해결해봅시다.
+// 그룹이름을 입력하면 멤버를 알려주는 맵을 만든다.
+
 int main()
 {
-	multiset<char> s; // multi - 중복된 값을 허용	
-	ifstream in{ "소스.cpp" };
-	copy(istream_iterator<char>{in}, {}, inserter(s, s.begin()));
-	for (char s : s)
-		cout << s;
-	cout << endl;
+	map<string, vector<string>> group;
+	group.insert(pair<string, vector<string>>{"Itzy", { "유나","예지" }});
+	group["펄시스터즈"] = { "배인순", "배인숙" };
+	group["이달의소녀"] = { "츄", "올리비아 혜" };
+	group["게임"] = { "쿠키런", "철권7" };
+	group["코요태"] = { "김종민", "빽가", "신지" };
+
+	// 그룹이름을 입력하면 멤버를 출력하는 프로그램
+	// (그룹이름이 없으면 멤버를 입력받아 등록할 수도 있다.)
+	
+	while (true) {
+		cout << "찾을 그룹 이름을 입력하세요: ";
+		string groupName;
+		cin >> groupName;
+
+		auto p = group.find(groupName);
+		if (p == group.end()) {
+			cout << groupName << "은 등록된 그룹이 아닙니다." << endl;
+			continue;
+		}
+		cout << "그룹 " << p->first << "의 멤버: ";
+		for (const string& name : (p->second))
+			cout << name << " ";
+		cout << endl;
+	}
 	//save("소스.cpp");
 }

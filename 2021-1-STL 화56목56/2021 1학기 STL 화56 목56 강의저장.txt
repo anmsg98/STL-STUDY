@@ -1934,3 +1934,112 @@ int main()
 	cout << endl;
 	save("소스.cpp");
 }
+===============================================
+저장시간 : 2021-05-11 오후 1:52:03 화요일
+===============================================
+//-------------------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 5월 11일 화요일            (11주 1일)
+//
+// Sequence ~
+// Associative Container - set(281쪽) / map	key/value
+// Unordered Associative ~
+//-------------------------------------------------------------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 길이 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// 읽어보고 출력하자.
+// 문제점 - set은 기본 정렬연산자로 < 을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+int main()
+{
+	ifstream in{ "소스.cpp" };
+	multiset<String> s{ istream_iterator<String>{in}, {} };
+		
+	for (const String& s : s)
+		cout << s << "\n";
+	cout << endl;
+	save("소스.cpp");
+}
+// 2021. 5. 11 set의 원소로 사용할 수 있도록 기본 정렬연산자인 < 를 정의
+	bool operator<(const String& rhs)const {
+		return num < rhs.num;
+	}
+---------------------------------------------------------------------------------------------------------------------
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+
+bool operator<(const String& rhs)const {
+		return std::string(p, p + num) < std::string(rhs.p, rhs.p + num);
+	}
+---------------------------------------------------------------------------------------------------------------------
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+class LESS {
+public:
+	bool operator()(const String& a, const String& b) const {
+		return a.size() < b.size();
+	}
+};
+
+int main()
+{
+	set<String, LESS> s{ "abcdef" , "xyz", "hijk" };
+	for (const String& s : s)
+		cout << s << endl;
+	save("소스.cpp");
+}
+---------------------------------------------------------------------------------------------------------------------
+int main()
+{
+	set<String> s{ "abcdef" , "xyz", "hijk" };
+	s.emplace("12345");
+	auto[위치, ignore] = s.insert("xyz");
+	auto p = s.find("xyz");
+	
+	if (p == 위치)
+		cout << "같은 반복자" << endl;
+	
+	for (const String& s : s)
+		cout << s << endl;
+	save("소스.cpp");
+}
+---------------------------------------------------------------------------------------------------------------------
+// 그룹이름을 입력하면 멤버를 알려주는 맵을 만든다.
+
+int main()
+{
+	map<string, vector<string>> group;
+	group.insert(pair<string, vector<string>>{"Itzy", { "유나","예지" }});
+	group["펄시스터즈"] = { "배인순", "배인숙" };
+	group["이달의소녀"] = { "츄", "올리비아 혜" };
+	group["게임"] = { "쿠키런", "철권7" };
+	group["코요태"] = { "김종민", "빽가", "신지" };
+
+	// 그룹이름을 입력하면 멤버를 출력하는 프로그램
+	// (그룹이름이 없으면 멤버를 입력받아 등록할 수도 있다.)
+	save("소스.cpp");
+	while (true) {
+		cout << "찾을 그룹 이름을 입력하세요: ";
+		string groupName;
+		cin >> groupName;
+
+		auto p = group.find(groupName);
+		if (p == group.end()) {
+			cout << groupName << "은 등록된 그룹이 아닙니다." << endl;
+			continue;
+		}
+		cout << "그룹 " << p->first << "의 멤버: ";
+		for (const string& name : (p->second))
+			cout << name << " ";
+		cout << endl;
+	}
+	
+}

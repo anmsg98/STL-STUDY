@@ -248,6 +248,10 @@ public:
 		return *this;
 	}
 
+	// 2021. 5. 11 set의 원소로 사용할 수 있도록 기본 정렬연산자인 < 를 정의
+	bool operator<(const String& rhs)const {
+		return std::string(p, p + num) < std::string(rhs.p, rhs.p + num);
+	}
 private:
 	size_t num;							// 확보한 자원의 수
 	char* p;							// 확보한 자원의 위치
