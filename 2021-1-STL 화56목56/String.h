@@ -7,6 +7,7 @@
 #pragma once
 #include <iostream>
 #include <random>
+#include <unordered_set>
 #include <string>
 
 using std::cout;
@@ -249,8 +250,9 @@ public:
 	}
 
 	// 2021. 5. 11 set의 원소로 사용할 수 있도록 기본 정렬연산자인 < 를 정의
+	// 2021. 5. 18 기본 정렬을 길이 오름차순으로 
 	bool operator<(const String& rhs)const {
-		return std::string(p, p + num) < std::string(rhs.p, rhs.p + num);
+		return num < rhs.num;
 	}
 private:
 	size_t num;							// 확보한 자원의 수
@@ -310,8 +312,7 @@ public:
 		return reverse_iterator{ p };
 	}
 
-	bool operator==(const String& rhs)
-	{
+	bool operator==(const String& rhs) const {
 		if (num != rhs.num)
 		{
 			return false;
@@ -348,3 +349,15 @@ std::istream& operator>>(std::istream& is, String& s)
 
 	return is;
 }
+
+//2021. 5. 18
+//unordered 컨테이너의 원소가 되려면 hash 값을 제공해야 한다.
+/*
+template <>
+struct hash<String> {
+	size_t operator()(const String& s) const{
+		// s의 멤버는 int, string(char*)
+		return hash<int>()(s.size()); 
+	}
+}
+*/
