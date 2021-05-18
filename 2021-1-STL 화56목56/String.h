@@ -350,14 +350,3 @@ std::istream& operator>>(std::istream& is, String& s)
 	return is;
 }
 
-//2021. 5. 18
-//unordered 컨테이너의 원소가 되려면 hash 값을 제공해야 한다.
-/*
-template <>
-struct hash<String> {
-	size_t operator()(const String& s) const{
-		// s의 멤버는 int, string(char*)
-		return hash<int>()(s.size()); 
-	}
-}
-*/

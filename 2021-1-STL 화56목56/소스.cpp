@@ -27,64 +27,95 @@ uniform_int_distribution<> sel{ 1,10000 };
 const int NUM{ 1'0000 };		// 저장한 개수
 const int FNUM{ 1'0000 };			// 찾을 개수
 
+//2021. 5. 18
+//unordered 컨테이너의 원소가 되려면 hash 값을 제공해야 한다.
+
+template <>
+struct hash<String> {
+	size_t operator()(const String& s) const {
+		//s의 멤버는 int, string(char*)
+		return hash<int>()(s.size());
+	}
+};
+
 int main()
 {
-	//// 벡터에 String을 저장한다.
-	//// 길이 1부터 NUM까지 길이를 갖는 String을 저장
-	//vector<String> v;
-	//v.reserve(NUM); // 메모리를 확보해 놓음
+	// 벡터에 String을 저장한다.
+	// 길이 1부터 NUM까지 길이를 갖는 String을 저장
+	vector<String> v;
+	v.reserve(NUM); // 메모리를 확보해 놓음
 
-	//cout << "데이터 생성 중..." << endl;
-	//for (int i = 0; i < NUM; ++i)
-	//	v.emplace_back(i + 1);
-	//cout << "데이터 생성 완료" << endl;
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+		v.emplace_back(i + 1);
+	cout << "데이터 생성 완료" << endl;
 
-	//// 찾을 객체를 array에 저장한다.
-	//array<String, FNUM> arr;
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
 
-	//for (int i = 0; i < FNUM; ++i)
-	//	arr[i] = v[sel(dre)];
+	for (int i = 0; i < FNUM; ++i)
+		arr[i] = v[sel(dre)];
 
-	//// 10%는 존재하지 않는 데이터
-	//for (int i = 0; i < FNUM * 0.1; ++i)
-	//	arr[i] = move(String(sel(dre)));
-	//cout << endl;
-	//{	// 벡터의 실력을 알아본다
-	//	int cnt{};
+	// 10%는 존재하지 않는 데이터
+	for (int i = 0; i < FNUM * 0.1; ++i)
+		arr[i] = move(String(sel(dre)));
+	cout << endl;
+	{	// 벡터의 실력을 알아본다
+		int cnt{};
 
-	//	using namespace std::chrono;
-	//	// 시간 시작
-	//	auto b = steady_clock::now();
-	//	for (int j = 0; j < 10; ++j) {
-	//		for (int i = 0; i < FNUM; ++i)
-	//			if (find(v.begin(), v.end(), arr[i]) != v.end())
-	//				++cnt;
-	//	}
-	//	// 시간 끝
-	//	cout << "벡터에서 찾기(밀리초) - "
-	//		<< duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
-	//	cout << "찾은 개수 - " << cnt << endl;
-	//}
+		using namespace std::chrono;
+		// 시간 시작
+		auto b = steady_clock::now();
+		for (int j = 0; j < 10; ++j) {
+			for (int i = 0; i < FNUM; ++i)
+				if (find(v.begin(), v.end(), arr[i]) != v.end())
+					++cnt;
+		}
+		// 시간 끝
+		cout << "벡터에서 찾기(밀리초) - "
+			<< duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
 
-	//cout << endl;
-	//{	// 셋의 실력을 알아본다
-	//	set<String> s{ v.begin(), v.end() };
+	cout << endl;
+	{	// 셋의 실력을 알아본다
+		set<String> s{ v.begin(), v.end() };
 
-	//	int cnt{};
+		int cnt{};
 
-	//	using namespace std::chrono;
-	//	// 시간 시작
-	//	auto b = steady_clock::now();
-	//	for (int j = 0; j < 10; ++j) {
-	//		for (int i = 0; i < FNUM; ++i)
-	//			if (s.find(arr[i]) != s.end())
-	//				++cnt;
-	//	}
-	//	// 시간 끝
-	//	cout << "셋에서 찾기(밀리초) - "
-	//		<< duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
-	//	cout << "찾은 개수 - " << cnt << endl;
-	//}
+		using namespace std::chrono;
+		// 시간 시작
+		auto b = steady_clock::now();
+		for (int j = 0; j < 10; ++j) {
+			for (int i = 0; i < FNUM; ++i)
+				if (s.find(arr[i]) != s.end())
+					++cnt;
+		}
+		// 시간 끝
+		cout << "셋에서 찾기(밀리초) - "
+			<< duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	cout << endl;
+	{	// 언오더드 셋의 실력을 알아본다
+		unordered_set<String> s{ v.begin(), v.end() };
+
+		int cnt{};
+
+		using namespace std::chrono;
+		// 시간 시작
+		auto b = steady_clock::now();
+		for (int j = 0; j < 10; ++j) {
+			for (int i = 0; i < FNUM; ++i)
+				if (s.find(arr[i]) != s.end())
+					++cnt;
+		}
+		// 시간 끝
+		cout << "언오더드 셋에서 찾기(밀리초) - "
+			<< duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
 	
 	// [문제] set에서 같은 원소란 무엇인가?
 	cout << "셋에서 같다는 것의 의미?" << endl;
