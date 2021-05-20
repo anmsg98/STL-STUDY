@@ -17,7 +17,6 @@ using std::endl;
 
 std::default_random_engine dre;
 std::uniform_int_distribution<> uidAlpha{ 'a', 'z' };
-
 // 2021. 04. 20.
 // String이 외부에 제공하는 반복자
 class String_iterator // : public std::iterator<std::random_access_iterator_tag, char>
@@ -254,9 +253,16 @@ public:
 	bool operator<(const String& rhs)const {
 		return num < rhs.num;
 	}
+	void setCnt(int n) {
+		xcnt = n;
+	}
+	int getCnt() const {
+		return xcnt;
+	}
 private:
 	size_t num;							// 확보한 자원의 수
 	char* p;							// 확보한 자원의 위치
+	static int xcnt;
 
 private:
 	friend std::ostream& operator<<(std::ostream&, const String&);
@@ -313,6 +319,7 @@ public:
 	}
 
 	bool operator==(const String& rhs) const {
+		xcnt++;
 		if (num != rhs.num)
 		{
 			return false;
@@ -329,6 +336,7 @@ public:
 		return true;
 	}
 };
+int String::xcnt;
 
 std::ostream& operator<<(std::ostream& os, const String& s)
 {
