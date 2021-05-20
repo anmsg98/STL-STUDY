@@ -8,12 +8,16 @@
 // 기말시험 - 6월 10일 (목요일) (15주 2일)
 //-------------------------------------------------------------------------
 #include <iostream>
+#include <algorithm>
+#include <vector>
 #include "save.h"
 #include "String.h"
 using namespace std;
 
 int main()
 {
-
-	save("소스.cpp");
+	vector<int> v{ 1,2,3,4,5,6,7,8,9,10 };
+	// [문제] v를 sort를 사용하여 홀짝으로 분리하라..
+	
+	//save("소스.cpp");
 }
