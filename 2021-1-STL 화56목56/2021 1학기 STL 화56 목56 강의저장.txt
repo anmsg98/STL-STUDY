@@ -2276,6 +2276,64 @@ int main()
 	cout << endl;
 	save("소스.cpp");
 }
+<<<<<<< HEAD
+===============================================
+저장시간 : 2021-06-01 오후 2:02:35 화요일
+===============================================
+//-------------------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 6월 1일 화요일            (14주 1일)
+//
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+//
+// 기말시험 - 6월 10일 (목요일) (15주 2일)
+//-------------------------------------------------------------------------
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <fstream>
+#include <set>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+	vector<string> v{ istream_iterator<string>{in}, {} };
+	// 369882
+	sort(v.begin(), v.end());
+	cout << "모두 " << v.size() << "개의 정렬된 단어" << endl;
+
+	// [문제] 사용자가 입력한 단어를 내 사전에서 찾는다
+	// 단어가 없으면 없는 단어입니다라고 출력한다.
+	// 사전에 있는 단어라면 이 단어와 anagram 관계에 있는 단어를 모두 출력한다.
+
+	cout << "Anagram을 찾겠습니다." << endl;
+	save("소스.cpp");
+	while (true) {
+		cout << "찾을 단어를 입력: ";
+		string str;
+		cin >> str;
+		if (!binary_search(v.begin(), v.end(), str)) {
+			cout << str << " 은 없는 단어입니다." << endl;
+			continue;
+		}
+		// str을 정렬한다
+		cout << str;
+		sort(str.begin(), str.end());
+		cout << "-->" << str << endl;
+		// 모든 str 순열을 구해 사전에 있나 찾음
+		do {
+			if (binary_search(v.begin(), v.end(), str))
+				cout << str << " ";
+		} while (next_permutation(str.begin(), str.end()));
+		cout << endl;
+	}
+
+	
+=======
 ---------------------------------------------------------------------------------------------------------------------
 template <class InIter, class UnaryPred>
 void For_each(InIter beg, InIter end, UnaryPred f)
@@ -2297,18 +2355,76 @@ int main()
 		cout << n;
 
 	save("소스.cpp");
+>>>>>>> 5459dd79ae62a484d6f612060d862f993c0308e8
 }
 ---------------------------------------------------------------------------------------------------------------------
 int main()
 {
+<<<<<<< HEAD
+	ifstream in{ "단어들.txt" };
+	vector<string> v{ istream_iterator<string>{in}, {} };
+	sort(v.begin(), v.end());
+	cout << "모두 " << v.size() << "개의 정렬된 단어" << endl;
+
+	// [문제] 길이가 긴 순서대로 10개 단어를 출력하라.
+	partial_sort(v.begin(), v.end() + 10, v.end(), [](const string& a, const string& b) {
+		return a.size() > b.size();
+		});
+	for (int i = 0; i < 10; ++i)
+		cout << v[i] << endl;
+=======
 	auto il = {1, 2, 3, 4, 5};
 	vector<int> v{ 1,2,4,5 };
 	auto [성공여부, 위치] = mismatch(il.begin(), il.end(), v.begin());
 	cout << *위치 << endl;
+>>>>>>> 5459dd79ae62a484d6f612060d862f993c0308e8
 
 	save("소스.cpp");
 }
 ---------------------------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+struct PS : public pair<string, string>
+{
+	PS() = default;
+	PS(string s) : pair<string, string>(s, s) {
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+	// PS first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	/*for (int i = 210000; i < 210200; ++i)
+		cout << v[i].first << " - " << v[i].second << endl;*/
+	save("소스.cpp");
+	while (true) {
+		cout << "찾을 단어는?: ";
+		string s;
+		cin >> s;
+		sort(s.begin(), s.end());
+		cout << "사전에서 " << s << "와 같은 first를 찾는다." << endl;
+
+		auto [하한, 상한] = equal_range(v.begin(), v.end(), PS{ s }, [](const PS& elem, const PS& val) {
+			return elem.first < val.first;
+			});
+		if (하한 == 상한) {
+			cout << "없는 단어입니다" << endl;
+			continue;
+		}
+		cout << "애너그램 관계인 단어들 입니다." << endl;
+		for (auto p = 하한 - 1; p < 상한 + 1; ++p) {
+			cout << p->first << " - " <<  p->second << endl;
+		}
+		cout << endl;
+	}
+	
+=======
 int main()
 {
 	vector<int> v{ 1,2,3,4,5,6,7,8,9,10 };
@@ -2349,4 +2465,5 @@ int main()
 		cout << n << " ";
 	cout << endl;
 	save("소스.cpp");
+>>>>>>> 5459dd79ae62a484d6f612060d862f993c0308e8
 }

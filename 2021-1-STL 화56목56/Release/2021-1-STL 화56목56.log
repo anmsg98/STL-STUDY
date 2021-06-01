@@ -4,8 +4,14 @@ C:\Users\wjstj\Desktop\STL\2021-1-STL 화56목56\String.h(291,21): warning C4018
 C:\Users\wjstj\Desktop\STL\2021-1-STL 화56목56\String.h(328,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
 C:\Users\wjstj\Desktop\STL\2021-1-STL 화56목56\String.h(343,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   코드를 생성하고 있습니다.
+<<<<<<< HEAD
+  1 of 345 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+=======
   228 of 452 functions (50.4%) were compiled, the rest were copied from previous compilation.
     2 functions were new in current compilation
     14 functions had inline decision re-evaluated but remain unchanged
+>>>>>>> 5459dd79ae62a484d6f612060d862f993c0308e8
   코드를 생성했습니다.
   2021-1-STL 화56목56.vcxproj -> C:\Users\wjstj\Desktop\STL\Release\2021-1-STL 화56목56.exe
