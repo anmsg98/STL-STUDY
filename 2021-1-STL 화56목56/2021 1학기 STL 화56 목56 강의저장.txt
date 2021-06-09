@@ -2667,4 +2667,51 @@ int main()
 		cout << n << " ";
 	save("소스.cpp");
 	
+}===============================================
+저장시간 : 2021-06-09 오후 10:23:35 수요일
+===============================================
+//-------------------------------------------------------------------------
+// 2021. 1학기 STL 화56 목56  - 6월 3일 목요일            (14주 2일)
+
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+//
+// 기말시험 - 6월 10일 (목요일) (15주 2일)
+//-------------------------------------------------------------------------
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template<typename Iter, typename Val>
+Iter my_find(Iter begin, Iter end, Val val)
+{
+	for (; begin != end; ++begin)
+	{
+		if (*begin == val)
+		{
+			return begin;
+		}
+	}
+
+	return end;
+}
+
+int main()
+{
+	vector<String> v{ "123", "4567", "abc" };
+
+	// [문제] main이 문제 없이 실행되게 하라.
+	auto iter = find(v.begin(), v.end(), String{ "abc" });
+
+	// abc가 출력되어야 한다.
+	// 기말고사는 이런 유형이 될 것이다 : 틀린 코드 고치거나 코드 추가 하기
+	cout << *iter << endl;
+
+	save("소스.cpp");
 }

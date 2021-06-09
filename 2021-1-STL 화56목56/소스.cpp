@@ -1,36 +1,65 @@
-//-------------------------------------------------------------------------
-// 2021. 1학기 STL 화56 목56  - 6월 3일 목요일            (14주 2일)
-
-// 알고리즘 함수 살펴보기
-// 알고리즘 사용예제(anagram)
-// range, view
-//
-// 기말시험 - 6월 10일 (목요일) (15주 2일)
-//-------------------------------------------------------------------------
-
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
 #include <iostream>
+#include <fstream>
 #include <algorithm>
-#include <ranges>
 #include <vector>
 #include "save.h"
+#include "String.h"
+
 using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS() = default;
+
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
 
 int main()
 {
-	vector<int> v{ 1,3,5,7,9,2,4,6,8,10 };
 
-	// v에서 홀수만 골라 값을 10배로 만든 후 출력하라.
 
-	for (int n : v 
-		| views::filter([](int n) {return n & 1;})
-		| views::transform([](int n) {return n *= 10; })
-		)
-		cout << n << " ";
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+	});
+
+	for (int i = 0; i < 500; ++i)
+	{
+		cout << v[i].first << " - " << v[i].second << endl;
+	}
 	cout << endl;
 
-	for (int n : v)
-		cout << n << " ";
-	cout << endl;
-	// save("소스.cpp");
-	
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	while (true)
+	{
+		// 나와 다음 것이 같은지 찾는다.
+		// if (찾음)
+		//	  찾은 자리를 저장하고
+		//    다음 위치와 다른 값이 나오는 자리를 찾는다.
+		//    if (end())
+	}
 }

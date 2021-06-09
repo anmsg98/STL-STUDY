@@ -36,7 +36,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -85,7 +85,7 @@ int main()
 	//}
 	//cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -136,7 +136,7 @@ int main()
 	//}
 	//cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -177,7 +177,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -208,7 +208,7 @@ int main()
 
 	cout << s << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -239,7 +239,7 @@ int main()
 
 	cout << s << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -265,7 +265,7 @@ int main()
 {
 	cout << typeid(iterator_traits<String_iterator>::iterator_category).name() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -291,7 +291,7 @@ int main()
 {
 	cout << typeid(iterator_traits<String_iterator>::reference).name() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -317,7 +317,7 @@ int main()
 {
 	cout << typeid(iterator_traits<String_iterator>::difference_type).name() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -339,7 +339,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	String s{ "the quick brown fox jumps over the lazy dog" };
 
@@ -402,7 +402,7 @@ Iter my_find(Iter begin, Iter end, Val val)
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	String s{ "the quick brown fox jumps over the lazy dog" };
 	vector<char> v{ s.begin(), s.end() };
@@ -475,7 +475,7 @@ int main()
 	// 기말고사는 이런 유형이 될 것이다 : 틀린 코드 고치거나 코드 추가 하기
 	cout << *iter << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -503,7 +503,7 @@ int main()
 {
 	cout << typeid(vector<int>::iterator::iterator_concept).name() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -547,7 +547,7 @@ int main()
 	f(vector<int>{}.begin());
 	f(deque<int>::iterator());
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -590,7 +590,7 @@ int main()
 {
 	cout << boolalpha << same_as<int, int> << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -629,7 +629,7 @@ int main()
 
 	f(p, q);
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -669,7 +669,7 @@ int main()
 		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -724,7 +724,7 @@ int main()
 		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -787,7 +787,7 @@ int main()
 		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -853,7 +853,7 @@ int main()
 		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -894,7 +894,7 @@ int main()
 	cout << endl << endl;
 	cout << "길이가 4이하인 단어의 개수 : " << count << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -951,7 +951,7 @@ int main()
 	cout << endl << endl;
 	cout << "길이가 4이하인 단어의 개수 : " << count << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -985,7 +985,7 @@ int main()
 
 	cout << distance(cont.begin(), cont.end()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1033,7 +1033,7 @@ int main()
 
 	cout << my_distance(cont.begin(), cont.end()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1087,7 +1087,7 @@ int main()
 
 	cout << my_distance(cont.begin(), cont.end()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1140,7 +1140,7 @@ int main()
 
 	//cout << my_distance(cont.begin(), cont.end()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1193,7 +1193,7 @@ int main()
 
 	//cout << my_distance(cont.begin(), cont.end()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1247,7 +1247,7 @@ int main()
 	// unreachable
 	cout << distance(cont.end(), cont.begin()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1314,7 +1314,7 @@ int main()
 	// unreachable
 	cout << my_distance(cont.end(), cont.begin()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1380,7 +1380,7 @@ int main()
 	// unreachable
 	cout << my_distance(cont.begin(), cont.end()) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1445,7 +1445,7 @@ int main()
 	// 컴파일하기 전에 값이 333이라는 것을 보장한다.
 	constexpr int b = 333;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1479,7 +1479,7 @@ int main()
 	copy(v.begin(), v.end(), ostream_iterator<int>{cout});
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1514,7 +1514,7 @@ int main()
 	copy(v.begin(), v.end(), ostream_iterator<int>{cout, ", "});
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1546,7 +1546,7 @@ int main()
 
 	copy(istream_iterator<string>{cin}, {}, ostream_iterator<string>{out, " "});
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1570,7 +1570,6 @@ int main()
 
 using namespace std;
 
-// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
 // 알고리즘 - copy
 // vector에 있는 자료를 다른 벡터에 복사한다.
 
@@ -1591,7 +1590,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1615,7 +1614,6 @@ int main()
 
 using namespace std;
 
-// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
 // 알고리즘 - copy
 // vector에 있는 자료를 다른 벡터에 복사한다.
 
@@ -1647,7 +1645,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1671,7 +1669,6 @@ int main()
 
 using namespace std;
 
-// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
 // 알고리즘 - copy
 // vector에 있는 자료를 다른 벡터에 복사한다.
 
@@ -1709,7 +1706,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1733,7 +1730,6 @@ int main()
 
 using namespace std;
 
-// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
 // 알고리즘 - copy
 // vector에 있는 자료를 다른 벡터에 복사한다.
 
@@ -1772,7 +1768,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1796,7 +1792,6 @@ int main()
 
 using namespace std;
 
-// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
 // 알고리즘 - copy
 // vector에 있는 자료를 다른 벡터에 복사한다.
 
@@ -1837,7 +1832,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1861,7 +1856,6 @@ int main()
 
 using namespace std;
 
-// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
 // 알고리즘 - copy
 // vector에 있는 자료를 다른 벡터에 복사한다.
 
@@ -1899,7 +1893,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1928,7 +1922,7 @@ int main()
 	cout << a.size() << endl;
 	cout << c.size() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1960,7 +1954,7 @@ int main()
 
 	cout << c.size() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -1987,7 +1981,7 @@ int main()
 
 	cout << boolalpha << (a == c) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2014,7 +2008,7 @@ int main()
 
 	cout << boolalpha << (a == b) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2041,7 +2035,7 @@ int main()
 
 	cout << boolalpha << (a == b) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2083,7 +2077,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2123,7 +2117,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2165,7 +2159,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2207,7 +2201,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2245,7 +2239,7 @@ int main()
 		cout << s << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2283,7 +2277,7 @@ int main()
 		cout << s << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2321,7 +2315,7 @@ int main()
 		cout << s << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2360,7 +2354,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2413,7 +2407,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2464,7 +2458,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2517,7 +2511,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2577,7 +2571,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2637,7 +2631,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2698,7 +2692,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2758,7 +2752,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2789,7 +2783,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	map<string, vector<string>> group;
 
@@ -2860,7 +2854,7 @@ int main()
 
 	m["송골매"]; // vector<string>& m.operator[]("송골매");와 같은 연산자가 오버로딩 된 것이다.
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2895,7 +2889,7 @@ int main()
 
 	cout << simap["바나나"] << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2930,7 +2924,7 @@ int main()
 
 	cout << simap["바나나"] << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -2972,7 +2966,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3016,7 +3010,7 @@ int main()
 		cout << iter->first << " - " << iter->second << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3073,7 +3067,7 @@ int main()
 		cout << alpha << " - " << freq << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3124,7 +3118,7 @@ int main()
 		cout << "[" << e * 1'000 << "~" << (e + 1) * 1'000 - 1 << "] - " << freq << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3146,7 +3140,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	unordered_set<int> us{ 1, 2, 3 };
 
@@ -3194,7 +3188,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	unordered_set<int> us{ 1, 2, 3 };
 
@@ -3255,7 +3249,7 @@ int main()
 	}
 
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3292,7 +3286,7 @@ int main()
 		cout << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3329,7 +3323,7 @@ int main()
 		cout << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3351,7 +3345,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	unordered_set<int> us{ 1, 2, 3, 1, 1, 1, 1, 1 };
 
@@ -3432,7 +3426,7 @@ int main()
 	cout << hash<int>()(2) << endl;
 	cout << hash<int>()(3) << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3483,7 +3477,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3530,7 +3524,7 @@ int main()
 	}
 	cout << "데이터 생성 완료" << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3602,7 +3596,7 @@ int main()
 		cout << "없는 자료" << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3682,7 +3676,7 @@ int main()
 		cout << "존재" << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3763,7 +3757,7 @@ int main()
 		cout << "찾은 개수 - " << cnt << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3851,7 +3845,7 @@ int main()
 		cout << "찾은 개수 - " << cnt << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -3939,7 +3933,7 @@ int main()
 		cout << "찾은 개수 - " << cnt << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4031,7 +4025,7 @@ int main()
 		cout << "찾은 개수 - " << cnt << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4149,7 +4143,7 @@ int main()
 		cout << "찾은 개수 - " << cnt << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4268,7 +4262,7 @@ int main()
 		cout << "찾은 개수 - " << cnt << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4327,7 +4321,7 @@ int main()
 		cout << "있음" << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4397,7 +4391,7 @@ int main()
 	// 3 < 3 --> false
 	// => 3 == 3
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4462,7 +4456,7 @@ int main()
 		cout << "있음" << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4646,7 +4640,7 @@ int main()
 		cout << "있음" << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4703,7 +4697,7 @@ int main()
 		cout << "둘은 다른 객체이다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4760,7 +4754,7 @@ int main()
 		cout << "이 문장이 출력되면 노트북 버려야..." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4826,7 +4820,7 @@ int main()
 	cout << "논리적으로 예측한 수 : " << NUM / 2 * FNUM << endl;
 	cout << "실제로 호출 수 : " << arr[0].getCnt() << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4865,7 +4859,7 @@ int main()
 	copy(iter, v.end(), ostream_iterator<int>{cout, " "});
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4903,7 +4897,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4937,7 +4931,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -4970,7 +4964,7 @@ int main()
 		});
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5008,7 +5002,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5055,7 +5049,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5088,7 +5082,7 @@ int main()
 
 	cout << *loc << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5125,7 +5119,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5169,7 +5163,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5207,7 +5201,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5251,7 +5245,7 @@ int main()
 	sample(v.begin(), v.end(), ostream_iterator<int>{cout, " "}, 6, mt19937{random_device{}()});
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5291,7 +5285,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5331,7 +5325,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5359,7 +5353,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	// 한글은 2바이트이기 때문에 두 칸씩 띄어써서 깨지지 않도록 하였다.
 	String s{ "안녕하세요!  C++는  너무너무  재미있어요  " };
@@ -5400,7 +5394,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	String s{ "->->->->->->->->->->" };
 
@@ -5440,7 +5434,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	String s{ "123456789" };
 
@@ -5493,7 +5487,7 @@ int main()
 		cout << standard << " --- " << order << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5540,7 +5534,7 @@ int main()
 		cout << standard << " --- " << order << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5588,7 +5582,7 @@ int main()
 		cout << standard << " --- " << order << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5654,7 +5648,7 @@ int main()
 		cout << endl << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5722,7 +5716,7 @@ int main()
 		cout << endl << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5807,7 +5801,7 @@ int main()
 		cout << endl << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5909,7 +5903,7 @@ int main()
 		cout << endl << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -5957,7 +5951,7 @@ int main()
 	}
 	cout << endl << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6019,7 +6013,7 @@ int main()
 	}
 	cout << endl << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6054,7 +6048,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "소스.cpp" };
 	vector<char> v;
@@ -6145,7 +6139,7 @@ int main()
 		cout << "[" << ++i << "] " << s << endl;
 	} while (next_permutation(s.begin(), s.end()));
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6181,7 +6175,7 @@ int main()
 		cout << "[" << ++i << "] " << s << endl;
 	} while (next_permutation(s.begin(), s.end()));
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6221,7 +6215,7 @@ int main()
 
 	cout << "단어 수 : " << v.size() << "개" << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6267,7 +6261,7 @@ int main()
 
 	cout << "단어 수 : " << v.size() << "개" << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6310,7 +6304,7 @@ int main()
 	// anagram의 예시?
 	// battle --- battle, tablet
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6359,7 +6353,7 @@ int main()
 		cout << "겹치는 단어는 없다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6417,7 +6411,7 @@ int main()
 		cout << "원소 수가 같으니 겹치는 단어는 틀림없이 없다." << endl;
 	}
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6446,7 +6440,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -6542,7 +6536,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6572,7 +6566,7 @@ using namespace std;
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -6663,7 +6657,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6723,7 +6717,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -6763,7 +6757,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -6852,7 +6846,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
 
@@ -6942,7 +6936,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -7010,7 +7004,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -7081,7 +7075,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -7172,7 +7166,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -7285,7 +7279,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -7399,7 +7393,7 @@ public:
 
 int main()
 {
-	save("소스.cpp");
+	
 
 	ifstream in{ "단어들.txt" };
 
@@ -7503,7 +7497,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -7537,7 +7531,7 @@ int main()
 	}
 	cout << endl;
 
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -7578,7 +7572,7 @@ int main()
 	}
 	cout << endl;
 	
-	save("소스.cpp");
+	
 }
 
 ======================================
@@ -7619,5 +7613,5 @@ int main()
 	}
 	cout << endl;
 	
-	save("소스.cpp");
+	
 }
