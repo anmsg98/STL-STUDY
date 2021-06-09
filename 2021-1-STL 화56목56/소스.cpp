@@ -9,6 +9,7 @@
 #include <fstream>
 #include <algorithm>
 #include <vector>
+#include <string>
 #include "save.h"
 #include "String.h"
 
@@ -33,33 +34,10 @@ int main()
 {
 
 
-	ifstream in{ "단어들.txt" };
+	ifstream in{ "시험1.dat"s, ios::binary };
+	vector<string> v{ istream_iterator<string>{in}, {} };
+	for (auto c : v)
+		cout << c << " ";
 
-	if (!in)
-	{
-		cout << "파일을 열 수 없습니다." << endl;
-	}
-
-	vector<PS> v{ istream_iterator<string>{in}, {} };
-
-	// PS의 first 기준으로 정렬한다.
-	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
-		return a.first < b.first;
-	});
-
-	for (int i = 0; i < 500; ++i)
-	{
-		cout << v[i].first << " - " << v[i].second << endl;
-	}
-	cout << endl;
-
-	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
-	while (true)
-	{
-		// 나와 다음 것이 같은지 찾는다.
-		// if (찾음)
-		//	  찾은 자리를 저장하고
-		//    다음 위치와 다른 값이 나오는 자리를 찾는다.
-		//    if (end())
-	}
+	
 }
