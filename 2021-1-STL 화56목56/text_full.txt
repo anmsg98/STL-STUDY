@@ -1,0 +1,7623 @@
+======================================
+저장시간 : 2021-04-27 오후 2:52:04 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월27일 화요일 (9주 1일)
+// 
+// 컨테이너, 알고리즘 그리고 이 둘을 연결하는 반복자
+// 
+// 반복자
+//   - 책 p31~p41, p123~p126
+//   - Design Pattern 중 iterator pattern
+//   - 반복자는 포인터를 추상화한 것이다.
+//   - 반복자처럼 행동하는 것은 반복자이다.
+//   - 반복자는 컨테이너가 제공하는 인터페이스이다.
+// ================================================================
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String이 반복자(String_iterator)를 리턴한다.
+// sort()가 문제없이 실행되도록 반복자에게 필요한 함수들을 오버로딩하라.
+// 다음 시간에...
+
+int main()
+{
+	string s{ "1357924680" };
+
+	for (auto iter = s.rbegin(); iter != s.rend(); ++iter)
+	{
+		cout << *iter << " - ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-27 오후 3:04:48 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월27일 화요일 (9주 1일)
+// 
+// 컨테이너, 알고리즘 그리고 이 둘을 연결하는 반복자
+// 
+// 반복자
+//   - 책 p31~p41, p123~p126
+//   - Design Pattern 중 iterator pattern
+//   - 반복자는 포인터를 추상화한 것이다.
+//   - 반복자처럼 행동하는 것은 반복자이다.
+//   - 반복자는 컨테이너가 제공하는 인터페이스이다.
+// ================================================================
+#include <iostream>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String이 반복자(String_iterator)를 리턴한다.
+// sort()가 문제없이 실행되도록 반복자에게 필요한 함수들을 오버로딩하라.
+
+//        입력       전진       양방향       랜덤       연속
+//
+
+int main()
+{
+	String s{ "1357924680" };
+
+	ostream_iterator<char> outIter{ cout };
+
+	*outIter = 'c';
+	++outIter;
+	*outIter = '+';
+	++outIter;
+	*outIter = '+';
+
+	//for (auto iter = s.rbegin(); iter != s.rend(); ++iter)
+	//{
+	//	cout << *iter << " - ";
+	//}
+	//cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-27 오후 3:05:47 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월27일 화요일 (9주 1일)
+// 
+// 컨테이너, 알고리즘 그리고 이 둘을 연결하는 반복자
+// 
+// 반복자
+//   - 책 p31~p41, p123~p126
+//   - Design Pattern 중 iterator pattern
+//   - 반복자는 포인터를 추상화한 것이다.
+//   - 반복자처럼 행동하는 것은 반복자이다.
+//   - 반복자는 컨테이너가 제공하는 인터페이스이다.
+// ================================================================
+#include <iostream>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String이 반복자(String_iterator)를 리턴한다.
+// sort()가 문제없이 실행되도록 반복자에게 필요한 함수들을 오버로딩하라.
+
+//        입력       전진       양방향       랜덤       연속
+//
+
+int main()
+{
+	String s{ "1357924680" };
+
+	ostream_iterator<char> outIter{ cout };
+
+	outIter = 'c';
+	outIter = '+';
+	outIter = '+';
+	outIter = '-';
+	outIter = '-';
+
+	cout << endl;
+
+	//for (auto iter = s.rbegin(); iter != s.rend(); ++iter)
+	//{
+	//	cout << *iter << " - ";
+	//}
+	//cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-27 오후 3:17:05 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월27일 화요일 (9주 1일)
+// 
+// 컨테이너, 알고리즘 그리고 이 둘을 연결하는 반복자
+// 
+// 반복자
+//   - 책 p31~p41, p123~p126
+//   - Design Pattern 중 iterator pattern
+//   - 반복자는 포인터를 추상화한 것이다.
+//   - 반복자처럼 행동하는 것은 반복자이다.
+//   - 반복자는 컨테이너가 제공하는 인터페이스이다.
+// ================================================================
+#include <iostream>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String이 반복자(String_iterator)를 리턴한다.
+// sort()가 문제없이 실행되도록 반복자에게 필요한 함수들을 오버로딩하라.
+
+//        입력       전진       양방향       랜덤       연속
+//
+
+int main()
+{
+	String s{ "1357924680" };
+
+	for (auto iter = s.rbegin(); iter != s.rend(); ++iter)
+	{
+		cout << *iter << " - ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-29 오후 2:21:07 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String이 반복자(String_iterator)를 리턴한다.
+// sort에 문제 없이 실행되도록 반복자에게 필요한 함수들을 오버로딩하라.
+
+int main()
+{
+	String s{ "1357924680" };
+
+	sort(s.begin(), s.end());
+
+	cout << s << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-29 오후 2:22:11 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String이 반복자(String_iterator)를 리턴한다.
+// sort에 문제 없이 실행되도록 반복자에게 필요한 함수들을 오버로딩하라.
+
+int main()
+{
+	String s{ "the quick brown fox jumps over the lazy dog" };
+
+	sort(s.begin(), s.end());
+
+	cout << s << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-29 오후 2:39:47 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String_iterator에게 "너는 어떤 종류의 반복자니?"라고 물어봐라.
+
+int main()
+{
+	cout << typeid(iterator_traits<String_iterator>::iterator_category).name() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-29 오후 2:41:12 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String_iterator에게 "너는 어떤 종류의 반복자니?"라고 물어봐라.
+
+int main()
+{
+	cout << typeid(iterator_traits<String_iterator>::reference).name() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-29 오후 2:41:33 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String_iterator에게 "너는 어떤 종류의 반복자니?"라고 물어봐라.
+
+int main()
+{
+	cout << typeid(iterator_traits<String_iterator>::difference_type).name() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-04-29 오후 2:46:36 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	save("소스.cpp");
+
+	String s{ "the quick brown fox jumps over the lazy dog" };
+
+	// [문제] s에 찾는 문자가 있는지 알려주자.
+	// 찾았다면 몇 번째에 있는지 또는 못 찾았는지 알려주자.
+
+	cout << "글자를 입력하면 찾겠습니다." << endl;
+	while (true)
+	{
+		char c;
+
+		cout << "글자를 입력하세요 : ";
+		cin >> c;
+
+		auto iter = find(s.begin(), s.end(), c);
+
+		if (iter != s.end())
+		{
+			cout << c << "는 " << distance(s.begin(), iter) + 1 << "번째 글자입니다." << endl;
+		}
+		else
+		{
+			cout << "해당 글자를 찾지 못했습니다." << endl;
+		}
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-04-29 오후 3:10:16 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template<typename Iter, typename Val>
+Iter my_find(Iter begin, Iter end, Val val)
+{
+	for (; begin != end; ++begin)
+	{
+		if (*begin == val)
+		{
+			return begin;
+		}
+	}
+
+	return end;
+}
+
+int main()
+{
+	save("소스.cpp");
+
+	String s{ "the quick brown fox jumps over the lazy dog" };
+	vector<char> v{ s.begin(), s.end() };
+
+	// [문제] s에 찾는 문자가 있는지 알려주자.
+	// 찾았다면 몇 번째에 있는지 또는 못 찾았는지 알려주자.
+	// 이 프로그램이 문제 없이 실행되도록 함수를 코딩하라.
+	cout << "글자를 입력하면 찾겠습니다." << endl;
+	while (true)
+	{
+		char c;
+
+		cout << "글자를 입력하세요 : ";
+		cin >> c;
+
+		auto iter = my_find(v.begin(), v.end(), c);
+
+		if (iter != v.end())
+		{
+			cout << c << "는 " << distance(v.begin(), iter) + 1 << "번째 글자입니다." << endl;
+		}
+		else
+		{
+			cout << "해당 글자를 찾지 못했습니다." << endl;
+		}
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-04-29 오후 3:21:41 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 04월29일 목요일 (9주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template<typename Iter, typename Val>
+Iter my_find(Iter begin, Iter end, Val val)
+{
+	for (; begin != end; ++begin)
+	{
+		if (*begin == val)
+		{
+			return begin;
+		}
+	}
+
+	return end;
+}
+
+int main()
+{
+	vector<String> v{ "123", "4567", "abc" };
+
+	// [문제] main이 문제 없이 실행되게 하라.
+	auto iter = find(v.begin(), v.end(), String{ "abc" });
+
+	// abc가 출력되어야 한다.
+	// 기말고사는 이런 유형이 될 것이다 : 틀린 코드 고치거나 코드 추가 하기
+	cout << *iter << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 1:46:35 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 어떤 반복자가 contiguous_iterator인지 판단하고 싶다.
+// 메모리가 붙은 컨테이너라면 ::iterator_concept이라는 타입을 제공한다.
+
+int main()
+{
+	cout << typeid(vector<int>::iterator::iterator_concept).name() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 1:54:05 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 어떤 반복자가 contiguous_iterator인지 판단하고 싶다.
+// 메모리가 붙은 컨테이너라면 ::iterator_concept이라는 타입을 제공한다.
+
+template<typename Iter>
+void f(Iter iter)
+{
+	if (contiguous_iterator<Iter>)
+	{
+		cout << "연속 반복자입니다." << endl;
+	}
+	else
+	{
+		cout << "연속 반복자가 아닙니다." << endl;
+	}
+}
+
+int main()
+{
+	f(0.001);
+	f(vector<int>{}.begin());
+	f(deque<int>::iterator());
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 1:59:51 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <concepts>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 어떤 반복자가 contiguous_iterator인지 판단하고 싶다.
+// 메모리가 붙은 컨테이너라면 ::iterator_concept이라는 타입을 제공한다.
+
+template<typename Iter>
+void f(Iter iter)
+{
+	if (contiguous_iterator<Iter>)
+	{
+		cout << "연속 반복자입니다." << endl;
+	}
+	else
+	{
+		cout << "연속 반복자가 아닙니다." << endl;
+	}
+}
+
+int main()
+{
+	cout << boolalpha << same_as<int, int> << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 2:03:40 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <concepts>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 어떤 반복자가 contiguous_iterator인지 판단하고 싶다.
+// 메모리가 붙은 컨테이너라면 ::iterator_concept이라는 타입을 제공한다.
+
+template<typename Iter1, typename Iter2>
+void f(Iter1 iter1, Iter2 iter2)
+{
+	cout << boolalpha << same_as<Iter1, Iter2> << endl;
+}
+
+int main()
+{
+	char* p;
+	int* q;
+
+	f(p, q);
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 2:19:25 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<String> v{ "1", "12", "123", "1234", "12345" };
+
+	// [문제] v에서 길이가 4인 원소를 찾아라.
+	// 찾았다면 발견한 위치를 출력하고 못 찾았다면 없다고 출력하라.
+	auto iter = find_if(v.begin(), v.end(), [](const String& s) {
+		return s.size() == 4;
+		});
+
+	if (iter != v.end())
+	{
+		cout << distance(v.begin(), iter) + 1 << "에서 찾았습니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 2:25:14 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template <typename Iter, typename Pred>
+Iter my_find_if(Iter begin, Iter end, Pred fn)
+{
+	while (begin != end)
+	{
+		if (fn(*begin))
+		{
+			return begin;
+		}
+		++begin;
+	}
+
+	return end;
+}
+
+int main()
+{
+	vector<String> v{ "1", "12", "123", "1234", "12345" };
+
+	// [문제] v에서 길이가 4인 원소를 찾아라.
+	// 찾았다면 발견한 위치를 출력하고 못 찾았다면 없다고 출력하라.
+	auto iter = my_find_if(v.begin(), v.end(), [](const String& s) {
+		return s.size() == 4;
+		});
+
+	if (iter != v.end())
+	{
+		cout << distance(v.begin(), iter) + 1 << "에서 찾았습니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 2:40:03 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template <typename Iter, typename Pred>
+Iter my_find_if(Iter begin, Iter end, Pred fn)
+{
+	// 매개변수 fn이 함수가 아니라면 화면에 출력하고 end를 리턴하라.
+	if (!is_function<Pred>::value)
+	{
+		cout << "함수가 아닙니다." << endl;
+
+		return end;
+	}
+
+	while (begin != end)
+	{
+		if (fn(*begin))
+		{
+			return begin;
+		}
+		++begin;
+	}
+
+	return end;
+}
+
+int main()
+{
+	vector<String> v{ "1", "12", "123", "1234", "12345" };
+
+	// [문제] v에서 길이가 4인 원소를 찾아라.
+	// 찾았다면 발견한 위치를 출력하고 못 찾았다면 없다고 출력하라.
+	auto iter = my_find_if(v.begin(), v.end(), [](const String& s) {
+		return s.size() == 4;
+		});
+
+	if (iter != v.end())
+	{
+		cout << distance(v.begin(), iter) + 1 << "에서 찾았습니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 2:41:45 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template <typename Iter, typename Pred>
+Iter my_find_if(Iter begin, Iter end, Pred fn)
+{
+	// 매개변수 fn이 함수가 아니라면 화면에 출력하고 end를 리턴하라.
+	if (!is_function<Pred>::value)
+	{
+		cout << "함수가 아닙니다." << endl;
+
+		return end;
+	}
+
+	while (begin != end)
+	{
+		if (fn(*begin))
+		{
+			return begin;
+		}
+		++begin;
+	}
+
+	return end;
+}
+
+bool len4(const String& s)
+{
+	return s.size() == 4;
+}
+
+int main()
+{
+	vector<String> v{ "1", "12", "123", "1234", "12345" };
+
+	// [문제] v에서 길이가 4인 원소를 찾아라.
+	// 찾았다면 발견한 위치를 출력하고 못 찾았다면 없다고 출력하라.
+	auto iter = my_find_if(v.begin(), v.end(), len4);
+
+	if (iter != v.end())
+	{
+		cout << distance(v.begin(), iter) + 1 << "에서 찾았습니다." << endl;
+	}
+	else
+	{
+		cout << "조건에 맞는 원소를 찾지 못했습니다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 3:02:18 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"에서 길이가 4이하인 단어와 개수를 출력하라.
+
+int main()
+{
+	ifstream in{ "소스.cpp" };
+	vector<String> v{ istream_iterator<String>{in}, {} };
+
+	int count = count_if(v.begin(), v.end(), [](const String& s) {
+		if (s.size() <= 4)
+		{
+			cout << s << '\t';
+			return true;
+		}
+		return false;
+		});
+
+	cout << endl << endl;
+	cout << "길이가 4이하인 단어의 개수 : " << count << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 3:07:53 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"에서 길이가 4이하인 단어와 개수를 출력하라.
+
+template<typename Iter, typename Pred>
+size_t my_count_if(Iter begin, Iter end, Pred fn)
+{
+	size_t count{};
+
+	for (; begin != end; ++begin)
+	{
+		if (fn(*begin))
+		{
+			++count;
+		}
+	}
+
+	return count;
+}
+
+int main()
+{
+	ifstream in{ "소스.cpp" };
+	vector<String> v{ istream_iterator<String>{in}, {} };
+
+	int count = my_count_if(v.begin(), v.end(), [](const String& s) {
+		if (s.size() <= 4)
+		{
+			cout << s << '\t';
+			return true;
+		}
+		return false;
+		});
+
+	cout << endl << endl;
+	cout << "길이가 4이하인 단어의 개수 : " << count << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 3:11:13 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 distance 함수를 작성하라.
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << distance(v.begin(), v.end()) << endl;
+
+	list<int> cont{ 1, 2, 3, 4, 5 };
+
+	cout << distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 3:14:41 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(v.begin(), v.end()) << endl;
+
+	list<int> cont{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-04 오후 3:17:31 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월04일 화요일 (10주 1일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	// 다음 시간부터...
+	//if (random_access_iterator<Iter>)
+	//{
+	//	return end - begin;
+	//}
+
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(v.begin(), v.end()) << endl;
+
+	list<int> cont{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:37:08 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	if (random_access_iterator<Iter>)
+	{
+		return end - begin;
+	}
+
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(v.begin(), v.end()) << endl;
+
+	//list<int> cont{ 1, 2, 3, 4, 5 };
+
+	//cout << my_distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:37:19 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	if (random_access_iterator<Iter>)
+	{
+		return end - begin;
+	}
+
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(v.end(), v.begin()) << endl;
+
+	//list<int> cont{ 1, 2, 3, 4, 5 };
+
+	//cout << my_distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:38:57 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	//if (random_access_iterator<Iter>)
+	//{
+	//	return end - begin;
+	//}
+
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << distance(v.end(), v.begin()) << endl;
+
+	list<int> cont{ 1, 2, 3, 4, 5 };
+
+	// unreachable
+	cout << distance(cont.end(), cont.begin()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:42:37 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	if (random_access_iterator<Iter>)
+	{
+		return end - begin;
+	}
+
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+ptrdiff_t my_distance(list<int>::iterator begin, list<int>::iterator end)
+{
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(v.end(), v.begin()) << endl;
+
+	list<int> cont{ 1, 2, 3, 4, 5 };
+
+	// unreachable
+	cout << my_distance(cont.end(), cont.begin()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:47:41 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	// tag dispatch 기법(낡은 기법)
+	//if (랜덤)
+	//{
+	//	my_distance(begin, end, random_access_iterator_tag);
+	//}
+	//else
+	//{
+	//	my_distance(begin, end, bidirectional_iterator_tag);
+	//}
+
+	// constexpr : if문이 참이라면 템플릿 코드 if만 거짓이라면 else만 찍어라(꼭 찾아볼 것)
+	//			   값이 compile시에 결정된다.
+	if constexpr (random_access_iterator<Iter>)
+	{
+		return end - begin;
+	}
+
+	ptrdiff_t count{};
+
+	while (begin != end)
+	{
+		++count;
+		++begin;
+	}
+
+	return count;
+}
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	cout << my_distance(v.end(), v.begin()) << endl;
+
+	list<int> cont{ 1, 2, 3, 4, 5 };
+
+	// unreachable
+	cout << my_distance(cont.begin(), cont.end()) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:52:36 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 반복자간의 거리를 계산하는 함수 my_distance를 작성하라.
+
+template<typename Iter>
+ptrdiff_t my_distance(Iter begin, Iter end)
+{
+	// tag dispatch 기법(낡은 기법)
+	//if (랜덤)
+	//{
+	//	my_distance(begin, end, random_access_iterator_tag);
+	//}
+	//else
+	//{
+	//	my_distance(begin, end, bidirectional_iterator_tag);
+	//}
+
+	// constexpr : if문이 참이라면 템플릿 코드 if만 거짓이라면 else만 찍어라(꼭 찾아볼 것)
+	//			   값이 compile시에 결정된다.
+	if constexpr (random_access_iterator<Iter>)
+	{
+		return end - begin;
+	}
+	else
+	{
+		ptrdiff_t count{};
+
+		while (begin != end)
+		{
+			++count;
+			++begin;
+		}
+
+		return count;
+	}
+}
+
+int main()
+{
+	// Read Only : 읽기만 하겠다.
+	const int a = 333;
+
+	// 컴파일하기 전에 값이 333이라는 것을 보장한다.
+	constexpr int b = 333;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:58:46 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 컨테이너의 원소를 다른 컨테이너로 복사한다.
+// vector의 원소를 화면에 복사(출력)한다.
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	// copy(어디에서부터?, 어디까지를?, 목적지로?)
+	// cin, cout, cerror, clog
+	copy(v.begin(), v.end(), ostream_iterator<int>{cout});
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 1:59:44 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 컨테이너의 원소를 다른 컨테이너로 복사한다.
+// vector의 원소를 화면에 복사(출력)한다.
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5 };
+
+	// copy(어디에서부터?, 어디까지를?, 목적지로?)
+	// cin, cout, cerror, clog
+	// 다음과 같이 delimeter를 넣을 수 있다 : ", "
+	copy(v.begin(), v.end(), ostream_iterator<int>{cout, ", "});
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:04:11 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+
+int main()
+{
+	ofstream out{ "단어들.txt"s };
+
+	copy(istream_iterator<string>{cin}, {}, ostream_iterator<string>{out, " "});
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:10:22 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+// 알고리즘 - copy
+// vector에 있는 자료를 다른 벡터에 복사한다.
+
+int main()
+{
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2;
+
+	// 빈 종이를 넣어야 copy가 될 것이다.
+	v2.reserve(50);
+
+	copy(v1.begin(), v1.end(), v2.begin());
+
+	// v2를 출력하여 확인한다.
+	for (int n : v2)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:16:05 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+// 알고리즘 - copy
+// vector에 있는 자료를 다른 벡터에 복사한다.
+
+template<typename SrcIter, typename DstIter>
+void my_copy(SrcIter begin, SrcIter end, DstIter dst)
+{
+	// begin이 end가 아닌 동안 *dst++ = *begin++;
+
+	while (begin != end)
+	{
+		*dst++ = *begin++;
+	}
+}
+
+int main()
+{
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2;
+
+	// 빈 종이를 넣어야 copy가 될 것이다.
+	v2.reserve(50);
+
+	my_copy(v1.begin(), v1.end(), v2.begin());
+
+	// v2를 출력하여 확인한다.
+	for (int n : v2)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:19:37 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+// 알고리즘 - copy
+// vector에 있는 자료를 다른 벡터에 복사한다.
+
+template<typename SrcIter, typename DstIter>
+void my_copy(SrcIter begin, SrcIter end, DstIter dst)
+{
+	// begin이 end가 아닌 동안 *dst++ = *begin++;
+
+	while (begin != end)
+	{
+		*dst++ = *begin++;
+	}
+}
+
+int main()
+{
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2;
+
+	// 빈 종이를 넣어야 copy가 될 것이다.
+	v2.reserve(50);
+
+	my_copy(v1.begin(), v1.end(), v2.begin());
+
+	// v2를 출력하여 확인한다.
+	for (int n : v2)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		cout << v2[i] << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:24:28 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+// 알고리즘 - copy
+// vector에 있는 자료를 다른 벡터에 복사한다.
+
+template<typename SrcIter, typename DstIter>
+void my_copy(SrcIter begin, SrcIter end, DstIter dst)
+{
+	// begin이 end가 아닌 동안 *dst++ = *begin++;
+
+	while (begin != end)
+	{
+		*dst++ = *begin++;
+	}
+}
+
+int main()
+{
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2;
+
+	// 빈 종이를 넣어야 copy가 될 것이다.
+	v2.reserve(50);
+
+	my_copy(v1.begin(), v1.end(), v2.begin());
+
+	// v2를 출력하여 확인한다.
+	// v2의 size 변화가 없기 때문에 출력이 되지 않는다.
+	for (int n : v2)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		cout << v2[i] << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:26:55 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+// 알고리즘 - copy
+// vector에 있는 자료를 다른 벡터에 복사한다.
+
+template<typename SrcIter, typename DstIter>
+void my_copy(SrcIter begin, SrcIter end, DstIter dst)
+{
+	// begin이 end가 아닌 동안 *dst++ = *begin++;
+
+	while (begin != end)
+	{
+		*dst++ = *begin++;
+	}
+}
+
+int main()
+{
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2;
+
+	my_copy(v1.begin(), v1.end(), ostream_iterator<int>{cout, "###"});
+
+	// 빈 종이를 넣어야 copy가 될 것이다.
+	v2.reserve(50);
+
+	my_copy(v1.begin(), v1.end(), v2.begin());
+
+	// v2를 출력하여 확인한다.
+	// v2의 size 변화가 없기 때문에 출력이 되지 않는다.
+	for (int n : v2)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		cout << v2[i] << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:28:17 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Container - 제네릭 클래스, String([char][char][char]...), begin(), end()
+// Iterator  - String_iterator, String_reverse_iterator
+// Algorithm - 제네릭 함수 / find, count / distance - concept, constexpr
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 입력한 단어를 "단어들.txt"에 저장하라.
+// 알고리즘 - copy
+// vector에 있는 자료를 다른 벡터에 복사한다.
+
+template<typename SrcIter, typename DstIter>
+void my_copy(SrcIter begin, SrcIter end, DstIter dst)
+{
+	// begin이 end가 아닌 동안 *dst++ = *begin++;
+
+	while (begin != end)
+	{
+		*dst++ = *begin++;
+	}
+}
+
+int main()
+{
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2;
+
+	// 빈 종이를 넣어야 copy가 될 것이다.
+	v2.reserve(50);
+
+	// push_back을 수행하도록 해서 size를 증가시킨다.
+	my_copy(v1.begin(), v1.end(), back_inserter(v2));
+
+	for (int n : v2)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		cout << v2[i] << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:53:18 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	// 표준 컨테이너라면 이동이 가능해야해.
+	vector<int> a{ 1, 2, 3 };
+	vector<int> c(move(a));
+
+	cout << a.size() << endl;
+	cout << c.size() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:54:15 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	// 표준 컨테이너라면 이동이 가능해야해.
+	vector<int> a{ 1, 2, 3 };
+	vector<int> c(move(a));
+
+	cout << a.size() << endl;
+
+	c.~vector<int>();
+
+	cout << c.size() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:55:10 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> a{ 1, 2, 3 };
+	vector<int> c(a);
+
+	cout << boolalpha << (a == c) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:55:30 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> a{ 1, 2, 3 };
+	vector<int> b{ 2, 3, 1 };
+
+	cout << boolalpha << (a == b) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 2:56:24 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	set<int> a{ 1, 2, 3 };
+	set<int> b{ 2, 3, 1 };
+
+	cout << boolalpha << (a == b) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 3:10:11 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <set>
+#include <iterator>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 키보드에서 단어를 읽어 오름차순으로 정렬한 후 출력하라.
+//		 (set을 사용하여 해결하라.)
+
+int main()
+{
+	//set<string> s{ istream_iterator<string>{cin}, {} };
+
+	//copy(s.begin(), s.end(), ostream_iterator<string>{cout, " "});
+
+	set<string> s;
+
+	copy(istream_iterator<string>{cin}, {}, inserter(s, s.begin()));
+
+	for (const string& s : s)
+	{
+		cout << s << " - ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 3:13:06 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 읽어 오름차순으로 정렬한 후 출력하라.
+//		 (set을 사용하여 해결하라.)
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	set<string> s;
+
+	copy(istream_iterator<string>{in}, {}, inserter(s, s.begin()));
+
+	for (const string& s : s)
+	{
+		cout << s << '\n';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 3:14:23 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 읽어 오름차순으로 정렬한 후 출력하라.
+//		 (set을 사용하여 해결하라.)
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	
+	// 중복된 값을 처리한다.
+	multiset<string> s;
+
+	copy(istream_iterator<string>{in}, {}, inserter(s, s.begin()));
+
+	for (const string& s : s)
+	{
+		cout << s << '\n';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-06 오후 3:15:53 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월06일 목요일 (10주 2일)
+// 
+// Sequence Container
+// Associative Container : set, map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 글자를 읽어 오름차순으로 정렬한 후 출력하라.
+//		 (set을 사용하여 해결하라.)
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	
+	// 중복된 값을 처리한다.
+	multiset<char> s;
+
+	copy(istream_iterator<char>{in}, {}, inserter(s, s.begin()));
+
+	for (char c : s)
+	{
+		cout << c;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 1:49:40 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 길이 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	set<String> s{ istream_iterator<String>{in}, {} };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 1:51:23 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 길이 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	multiset<String> s{ istream_iterator<String>{in}, {} };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 1:57:58 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	multiset<String> s{ istream_iterator<String>{in}, {} };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:02:05 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+int main()
+{
+	// set<String, less<String>> s;
+	set<String> s{ "abcdef", "xyz", "hijk" };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:15:52 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+class LESS
+{
+public:
+	bool operator()(const String& a, const String& b) const // const를 붙히지 않으면 동작하지 않음
+	{
+		return a.size() < b.size();
+	}
+};
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+int main()
+{
+	// set<String, less<String>> s;
+	set<String, LESS> s{ "abcdef", "xyz", "hijk" };
+	
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:34:52 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// 사이트 소개 : https://www.cppkorea.org/CppCoreGuidelines/
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+// 람다로 돌아가게 하려면 어떻해야 할까?
+//auto LESS = [](const String& a, const String& b) {
+//	return a.size() < b.size();
+//};
+
+int main()
+{
+	// set<String, less<String>> s;
+	set<String> s{ "abcdef", "xyz", "hijk" };
+	
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:36:19 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// 사이트 소개 : https://www.cppkorea.org/CppCoreGuidelines/
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+// 람다로 돌아가게 하려면 어떻해야 할까?
+//auto LESS = [](const String& a, const String& b) {
+//	return a.size() < b.size();
+//};
+
+int main()
+{
+	set<String> s{ "abcdef", "xyz", "hijk" };
+	
+	// emplace는 생성자의 인자를 함수의 인자로 넣어줘야 한다.
+	s.emplace("12345");
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:40:02 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// 사이트 소개 : https://www.cppkorea.org/CppCoreGuidelines/
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+// 람다로 돌아가게 하려면 어떻해야 할까?
+//auto LESS = [](const String& a, const String& b) {
+//	return a.size() < b.size();
+//};
+
+int main()
+{
+	set<String> s{ "abcdef", "xyz", "hijk" };
+	
+	// emplace는 생성자의 인자를 함수의 인자로 넣어줘야 한다.
+	s.emplace("12345");
+
+	// multiset이 아닌이상 똑같은 원소를 넣어도 들어가지 않는다.
+	// 그래서 원소 삽입시 해당 원소의 값을 가진 pair<iterater, bool>를 반환한다.
+	auto p = s.insert("xyzaaaa");
+
+	// 리턴받은 pair를 출력해보자.
+	cout << *p.first << ", " << boolalpha << p.second << endl;
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:40:22 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// 사이트 소개 : https://www.cppkorea.org/CppCoreGuidelines/
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+// 람다로 돌아가게 하려면 어떻해야 할까?
+//auto LESS = [](const String& a, const String& b) {
+//	return a.size() < b.size();
+//};
+
+int main()
+{
+	set<String> s{ "abcdef", "xyz", "hijk" };
+	
+	// emplace는 생성자의 인자를 함수의 인자로 넣어줘야 한다.
+	s.emplace("12345");
+
+	// multiset이 아닌이상 똑같은 원소를 넣어도 들어가지 않는다.
+	// 그래서 원소 삽입시 해당 원소의 값을 가진 pair<iterater, bool>를 반환한다.
+	auto p = s.insert("xyz");
+
+	// 리턴받은 pair를 출력해보자.
+	cout << *p.first << ", " << boolalpha << p.second << endl;
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:42:22 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// 사이트 소개 : https://www.cppkorea.org/CppCoreGuidelines/
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+// 람다로 돌아가게 하려면 어떻해야 할까?
+//auto LESS = [](const String& a, const String& b) {
+//	return a.size() < b.size();
+//};
+
+int main()
+{
+	set<String> s{ "abcdef", "xyz", "hijk" };
+	
+	// emplace는 생성자의 인자를 함수의 인자로 넣어줘야 한다.
+	s.emplace("12345");
+
+	// multiset이 아닌이상 똑같은 원소를 넣어도 들어가지 않는다.
+	// 그래서 원소 삽입시 해당 원소의 값을 가진 pair<iterater, bool>를 반환한다.
+	auto [iter, b] = s.insert("xyz"); // structured binding
+	// 값을 사용하지 않을 경우 : auto [위치, ignore]
+
+	// 리턴받은 pair를 출력해보자.
+	cout << *iter << ", " << boolalpha << b << endl;
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 2:44:56 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// 사이트 소개 : https://www.cppkorea.org/CppCoreGuidelines/
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어를 모두 읽어 사전식 오름차순으로 정렬하고 싶다.
+// set은 항상 정렬하는 컨테이너이니 여기로 String 클래스를 사용해서
+// "소스.cpp"의 단어를 읽어 저장하자.
+//	 - 문제점 : set은 기본 정렬연산자로 <을 사용한다.
+// set의 원소로 사용하려는 타입은 어떻게 정렬해야 하는지 set에게 알려줘야 한다.
+
+// String은 기본 사전식(lexicographical) 비교를 한다.
+// 길이 오름차순으로 정렬방식을 바꾸고 싶다.
+
+// 함수의 이름은 타입이 아니다.(Callable Type 복습)
+
+// 람다로 돌아가게 하려면 어떻해야 할까?
+//auto LESS = [](const String& a, const String& b) {
+//	return a.size() < b.size();
+//};
+
+int main()
+{
+	set<String> s{ "abcdef", "xyz", "hijk" };
+	
+	s.emplace("12345");
+	
+	auto [loc, ignore] = s.insert("xyz");
+	auto p = s.find("xyz");
+
+	if (loc == p)
+	{
+		cout << "같은 반복자" << endl;
+	}
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-11 오후 3:18:19 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월11일 화요일 (11주 1일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// 
+// map - pair<key, value>
+// 
+// 다음 시간
+//		연관배열로 사용한다.(통계처리에 유용)
+// ================================================================
+#include <iostream>
+#include <map>			// key/value pair이고 key는 const
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 그룹이름을 입력하면 멤버를 알려주는 맵을 만든다.
+
+int main()
+{
+	save("소스.cpp");
+
+	map<string, vector<string>> group;
+
+	// 키 값을 중요하게 여기기 때문에, 자료형에 대해서 엄격하다.
+	// 정식
+	group.insert(pair<string, vector<string>>{"aaa", { "1", "2" }});
+
+	// 간이 형태
+	group.insert(make_pair(string("펄시스터즈"), vector<string>{ "배인숙", "배인순" }));
+
+	group["게임"s] = { "쿠키런", "철권7" };
+	group["코요태"s] = { "김종민", "빽가", "신지" };
+
+	// 그룹이름을 입력하면 멤버를 출력하는 프로그램
+	// (그룹이름이 없으면 멤버를 입력받아 등록할 수도 있다.) 각자 해볼 것.
+	while (true)
+	{
+		string groupName{};
+
+		cout << "그룹이름을 입력하세요 : ";
+		cin >> groupName;
+
+		auto iter = group.find(groupName);
+
+		if (iter == group.end())
+		{
+			cout << groupName << "은 등록된 그룹이 아닙니다." << endl;
+			continue;
+		}
+
+		cout << "그룹 " << iter->first << "의 멤버: ";
+		for (const string& name : (iter->second))
+		{
+			cout << name << ' ';
+		}
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-05-13 오후 1:39:06 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <map>			// key/value pair이고 key는 const
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 연관배열 - map
+
+int main()
+{
+	//int a[]{ 1, 2, 3 };
+
+	//a[1] = 7; // int& = 7;
+	
+	map<string, vector<string>> m;
+
+	m["송골매"]; // vector<string>& m.operator[]("송골매");와 같은 연산자가 오버로딩 된 것이다.
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 1:42:25 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <map>			// key/value pair이고 key는 const
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 연관배열 - map
+
+int main()
+{
+	map<string, int> simap;
+
+	simap.insert(make_pair("사과", 1000));
+	
+	// map에 이런 key값이 있는가? 있다면 value를 리턴하고 없다면 해당 key를 추가한다.(value는 디폴트 값)
+	simap["바나나"];
+
+	cout << simap["바나나"] << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 1:43:50 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <map>			// key/value pair이고 key는 const
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 연관배열 - map
+
+int main()
+{
+	map<string, int> simap;
+
+	simap.insert(make_pair("사과", 1000));
+	
+	// map에 이런 key값이 있는가? 있다면 value를 리턴하고 없다면 해당 key를 추가한다.(value는 디폴트 값)
+	++simap["바나나"]; // key값을 조작할 수 있다.
+
+	cout << simap["바나나"] << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 1:50:19 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <map>			// key/value pair이고 key는 const
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 단어 빈도수를 출력하라.
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	map<string, int> sim;
+	string str;
+
+	while (in >> str)
+	{
+		++sim[str];
+	}
+
+	// map을 출력해본다.
+	for (auto iter = sim.begin(); iter != sim.end(); ++iter)
+	{
+		cout << iter->first << " - " << iter->second << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 1:53:41 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <map>			// key/value pair이고 key는 const
+#include <string>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 알파벳 사용횟수를 출력하라.
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	map<char, int> cim;
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c))
+		{
+			++cim[c];
+		}
+	}
+
+	// map을 출력해본다.
+	for (auto iter = cim.begin(); iter != cim.end(); ++iter)
+	{
+		cout << iter->first << " - " << iter->second << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 2:11:45 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <map>			// key/value pair이고 key는 const
+#include <vector>
+#include <string>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] "소스.cpp"의 알파벳 사용횟수를 출력하는데,
+// 사용횟수가 많은 순으로 출력하라.
+// 
+// i - 36
+// e - 32
+
+int main()
+{
+	ifstream in{ "소스.cpp"s };
+	map<char, int> cim;
+	char c;
+
+	while (in >> c)
+	{
+		if (isalpha(c))
+		{
+			++cim[c];
+		}
+	}
+
+	cout << "알파벳 사용횟수 내림차순 결과" << endl;
+
+	vector<pair<char, int>> v{ cim.begin(), cim.end() };
+
+	sort(v.begin(), v.end(), [](const pair<char, int>& a, const pair<char, int>& b) {
+		return a.second > b.second;
+		});
+
+	for (const auto& [alpha, freq] : v)
+	{
+		cout << alpha << " - " << freq << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 2:36:48 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container : set(p.281), map - key/value
+// Unordered Associative Container
+// ================================================================
+#include <iostream>
+#include <map>			// key/value pair이고 key는 const
+#include <vector>
+#include <random>
+#include "save.h"
+//#include "String.h"
+
+using namespace std;
+
+// [문제] 랜덤엔진을 사용한 유니폼 분포를 출력한다.
+random_device rd;
+default_random_engine dre{ rd() };
+uniform_int_distribution uid{ 1, 10'000 };
+
+int main()
+{
+	vector<int> v;
+
+	v.reserve(100'000);
+
+	for (int i = 0; i < 100'000; ++i)
+	{
+		v.push_back(uid(dre));
+	}
+
+	// [문제] v의 값을 10구간으로 나누어 각 원소의 개수를 출력하라.
+	map<int, int> iim;
+
+	for (int n : v)
+	{
+		++iim[n / 1'000];
+	}
+
+	for (const auto& [e, freq] : iim)
+	{
+		cout << "[" << e * 1'000 << "~" << (e + 1) * 1'000 - 1 << "] - " << freq << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 2:50:03 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	save("소스.cpp");
+
+	unordered_set<int> us{ 1, 2, 3 };
+
+	for (int n : us)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	// [문제] 원소를 추가하며 출력해서 순서가 없다는 뜻을 알아본다.
+	int num = 4;
+	
+	while (true)
+	{
+		char c;
+
+		cout << "키를 누르면 추가합니다 : ";
+		cin >> c;
+
+		us.insert(num++);
+
+		for (int n : us)
+		{
+			cout << n << ' ';
+		}
+	}
+}
+
+======================================
+저장시간 : 2021-05-13 오후 2:55:31 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	save("소스.cpp");
+
+	unordered_set<int> us{ 1, 2, 3 };
+
+	for (int n : us)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	// [문제] 원소를 추가하며 출력해서 순서가 없다는 뜻을 알아본다.
+	int num = 50;
+	
+	while (true)
+	{
+		char c;
+
+		cout << "키를 누르면 추가합니다 : ";
+		cin >> c;
+
+		us.insert(num);
+		num += 50;
+
+		for (int n : us)
+		{
+			cout << n << ' ';
+		}
+	}
+}
+
+======================================
+저장시간 : 2021-05-13 오후 3:05:41 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	unordered_set<int> us{ 1, 2, 3 };
+
+	// [문제] unordered set의 메모리를 화면에 출력한다.
+	for (int i = 0; i < us.bucket_count(); ++i)
+	{
+		cout << "[" << i << "] ";
+
+		// 버킷의 원소를 출력한다.
+		cout << endl;
+	}
+
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 3:08:27 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	unordered_set<int> us{ 1, 2, 3 };
+
+	// [문제] unordered set의 메모리를 화면에 출력한다.
+	for (int i = 0; i < us.bucket_count(); ++i)
+	{
+		cout << "[" << i << "]";
+
+		// 버킷의 원소를 출력한다.
+		for (auto iter = us.begin(i); iter != us.end(i); ++iter)
+		{
+			cout << " --> " << *iter;
+		}
+		cout << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 3:10:10 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	unordered_multiset<int> us{ 1, 2, 3, 1, 1, 1, 1, 1 };
+
+	// [문제] unordered set의 메모리를 화면에 출력한다.
+	for (int i = 0; i < us.bucket_count(); ++i)
+	{
+		cout << "[" << i << "]";
+
+		// 버킷의 원소를 출력한다.
+		for (auto iter = us.begin(i); iter != us.end(i); ++iter)
+		{
+			cout << " --> " << *iter;
+		}
+		cout << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-13 오후 3:16:21 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월13일 목요일 (11주 2일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	save("소스.cpp");
+
+	unordered_set<int> us{ 1, 2, 3, 1, 1, 1, 1, 1 };
+
+	// 이 코드를 통해 while문의 for문에서 출력된 내용이 순서가 아니라는 점을 확인하자.
+	for (int n : us)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	// [문제] unordered set의 메모리를 화면에 출력한다.
+	// 4부터 원소를 추가하여 메모리를 관찰하자.
+	int num = 4;
+
+	while (true)
+	{
+		char c;
+
+		cout << "입력 시 원소를 추가합니다 : ";
+		cin >> c;
+
+		us.emplace(num++);
+
+		for (int i = 0; i < us.bucket_count(); ++i)
+		{
+			cout << "[" << i << "]";
+
+			// 버킷의 원소를 출력한다.
+			for (auto iter = us.begin(i); iter != us.end(i); ++iter)
+			{
+				cout << " --> " << *iter;
+			}
+			cout << endl;
+		}
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-05-18 오후 1:50:21 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// Sequence Container
+// Associative Container 왜 쓰는가? 빨리 찾기 위해
+// Unordered Associative Container : 찾기 O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] String을 unordered_set의 원소로
+// String을 hashing하는 함수를 만들어줘야 한다.
+
+// 템플릿 특수화
+template <>
+struct hash<String>
+{
+	// callable type
+	size_t operator()(const String& s) const
+	{
+		// s의 멤버는 int, string(char*)
+		return hash<int>()(s.size());
+	}
+};
+
+int main()
+{
+	unordered_set<String> us{ 1, 2, 3 };
+
+	cout << hash<int>()(1) << endl;
+	cout << hash<int>()(2) << endl;
+	cout << hash<int>()(3) << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:01:56 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다.
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	for (int i = 0; i < 3; ++i)
+	{
+		v.push_back(i + 1);
+	}
+
+	for (const String& s : v)
+	{
+		cout << s << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:06:22 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다.
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:23:21 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 1'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// arr[10]의 자료가 실제 있는지 검증
+	auto p = find(v.begin(), v.end(), arr[10]);
+
+	if (p != v.end())
+	{
+		cout << "존재" << endl;
+	}
+	else
+	{
+		cout << "없는 자료" << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:44:38 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 1'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	auto p = find(v.begin(), v.end(), arr[99]);
+
+	if (p == v.end())
+	{
+		cout << "그럴리 없다." << endl;
+	}
+
+	p = find(v.begin(), v.end(), arr[101]);
+
+	if (p != v.end())
+	{
+		cout << "존재" << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:46:45 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 1'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		int cnt{};
+
+		for (int i = 0; i < FNUM; ++i)
+		{
+			if (find(v.begin(), v.end(), arr[i]) != v.end())
+			{
+				++cnt;
+			}
+		}
+		
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:49:13 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 1'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int i = 0; i < FNUM; ++i)
+		{
+			if (find(v.begin(), v.end(), arr[i]) != v.end())
+			{
+				++cnt;
+			}
+		}
+		// 시간측정 끝
+		cout << "경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:49:27 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int i = 0; i < FNUM; ++i)
+		{
+			if (find(v.begin(), v.end(), arr[i]) != v.end())
+			{
+				++cnt;
+			}
+		}
+		// 시간측정 끝
+		cout << "경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:50:47 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (find(v.begin(), v.end(), arr[i]) != v.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:53:57 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (find(v.begin(), v.end(), arr[i]) != v.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "vector의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	// 셋의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		set<String> s{ v.begin(), v.end() };
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (s.find(arr[i]) != s.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "set의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 2:59:16 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (find(v.begin(), v.end(), arr[i]) != v.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "vector의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+	cout << endl;
+
+	// 셋의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		set<String> s{ v.begin(), v.end() };
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (s.find(arr[i]) != s.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "set의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 3:05:17 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// [문제] set에서 같은 원소란 무엇인가?
+	cout << "set에서 같다는 것의 의미?" << endl;
+
+	set<String> s{ 5, 1, 3 };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	if (s.find(String(3)) == s.end())
+	{
+		cout << "없음" << endl;
+	}
+	else
+	{
+		cout << "있음" << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 3:12:42 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// [문제] set에서 같은 원소란 무엇인가?
+	cout << "set에서 같다는 것의 의미?" << endl;
+	cout << "동등(equivalence)하다는 의미를 사용" << endl; // 구글에서 꼭 찾아 볼 것
+	cout << "상등(equality)은 ==로 같은 것을 판단할 때를 의미한다." << endl;
+
+	set<String> s{ 5, 1, 3 };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	String x{ 3 };
+
+	// 같은 3글자이지만 내용은 다르다.
+	// 즉, operator<의 기준에 따른다.
+	if (s.find(x) == s.end())
+	{
+		cout << "없음" << endl;
+	}
+	else
+	{
+		cout << "있음" << endl;
+	}
+
+	// 3 < 3 --> false
+	// (swap)
+	// 3 < 3 --> false
+	// => 3 == 3
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 3:16:31 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+int main()
+{
+	// [문제] set에서 같은 원소란 무엇인가?
+	cout << "set에서 같다는 것의 의미?" << endl;
+	cout << "동등(equivalence)하다는 의미를 사용" << endl; // 구글에서 꼭 찾아 볼 것
+	cout << "상등(equality)은 ==로 같은 것을 판단할 때를 의미한다." << endl;
+
+	multiset<String> s{ 5, 1, 3 };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	String x{ 3 };
+
+	// 같은 3글자이지만 내용은 다르다.
+	// 즉, operator<의 기준에 따른다.
+	if (s.find(x) == s.end())
+	{
+		cout << "없음" << endl;
+	}
+	else
+	{
+		cout << "있음" << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-18 오후 3:19:56 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월18일 화요일 (12주 1일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, 9'999 };
+
+template <> // 템플릿 특수화
+struct hash<String>
+{
+	// callable type
+	size_t operator()(const String& s) const
+	{
+		// s의 멤버는 int, string(char*)
+		return hash<int>()(s.size());
+	}
+};
+
+int main()
+{
+	// 벡터의 String을 저장한다.
+	// 1부터 NUM까지 길이를 갖는 String을 저장한다.
+	vector<String> v;
+
+	v.reserve(NUM);
+
+	cout << "데이터 생성 중..." << endl;
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+	cout << "데이터 생성 완료" << endl << endl;
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	// 10%는 존재하지 않는 자료로 만든다.
+	for (int i = 0; i < 0.1 * FNUM; ++i)
+	{
+		arr[i] = move(String(sel(dre)));
+	}
+
+	// 벡터의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (find(v.begin(), v.end(), arr[i]) != v.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "vector의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+	cout << endl;
+
+	// 셋의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		set<String> s{ v.begin(), v.end() };
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (s.find(arr[i]) != s.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "set의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+	cout << endl;
+
+	// 언오더드 셋의 찾기 실력을 알아본다.
+	{
+		using namespace std::chrono;
+
+		unordered_set<String> s{ v.begin(), v.end() };
+		int cnt{};
+
+		// 시간측정 시작
+		auto b = steady_clock::now();
+
+		for (int j = 0; j < 10; ++j)
+		{
+			for (int i = 0; i < FNUM; ++i)
+			{
+				if (s.find(arr[i]) != s.end())
+				{
+					++cnt;
+				}
+			}
+		}
+
+		// 시간측정 끝
+		cout << "unordered_set의 경과 시간(밀리초) : " << duration_cast<milliseconds>(steady_clock::now() - b).count() << endl;
+		cout << "찾은 개수 - " << cnt << endl;
+	}
+	cout << endl;
+
+	// [문제] set에서 같은 원소란 무엇인가?
+	cout << "set에서 같다는 것의 의미?" << endl;
+	cout << "동등(equivalence)하다는 의미를 사용" << endl; // 구글에서 꼭 찾아 볼 것
+	cout << "상등(equality)은 ==로 같은 것을 판단할 때를 의미한다." << endl;
+	// 즉, set의 결과가 다른 컨테이너가 다른 이유는 operator==가 아닌 operator<로 비교했기 때문이다.(String.h 확인)
+
+	multiset<String> s{ 5, 1, 3 };
+
+	for (const String& s : s)
+	{
+		cout << s << endl;
+	}
+
+	String x{ 3 };
+
+	// 같은 3글자이지만 내용은 다르다.
+	// 즉, operator<의 기준에 따른다.
+	if (s.find(x) == s.end())
+	{
+		cout << "없음" << endl;
+	}
+	else
+	{
+		cout << "있음" << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-20 오후 1:57:58 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월20일 목요일 (12주 2일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1), worst case O(n)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, NUM - 1 };
+
+int main()
+{
+	set<String> s{ 20, 30, 10 };
+	String x{ 20 };
+
+	// set은 정렬되기 때문에 ++를 해준다.
+
+	cout << *(++s.begin()) << endl;
+	cout << x << endl;
+
+	if (x == *(++s.begin()))
+	{
+		cout << "둘은 같은 객체이다." << endl;
+	}
+	else
+	{
+		cout << "둘은 다른 객체이다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-20 오후 2:01:03 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월20일 목요일 (12주 2일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1), worst case O(n)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, NUM - 1 };
+
+int main()
+{
+	set<String> s{ 20, 30, 10 };
+	String x{ 20 };
+
+	cout << *(++s.begin()) << endl;
+	cout << "찾으려는 것 : " << x << endl;
+
+	auto iter = s.find(x);
+
+	if (iter != s.end())
+	{
+		cout << "찾은 객체 : " << *iter << endl;
+	}
+	else
+	{
+		cout << "이 문장이 출력되면 노트북 버려야..." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-20 오후 2:56:19 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월20일 목요일 (12주 2일)
+// 
+// 대표 컨테이너의 찾기 실력을 검증한다.
+// 1. vector		: O(n)
+// 2. set			: O(log n)
+// 3. unordered_set	: O(1), worst case O(n)
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// 찾을 대상 전체를 컨테이너에 저장한다.
+// 그 중에서 특정 원소를 찾아본다. (존재하는 객체와 같은 객체를 준비해야 한다.)
+// 각 컨테이너별로 걸리는 시간을 측정한다.
+// 결과를 살펴본다.
+
+const int NUM{ 10'000 };	// 저장한 개수
+const int FNUM{ 10'000 };	// 찾을 개수
+
+uniform_int_distribution<> sel{ 0, NUM - 1 };
+
+// vector에서 find하는 동작의 복잡도가 O(n)이라는 것을 실험해 본다.
+
+int main()
+{
+	vector<String> v;
+	v.reserve(NUM);
+
+	for (int i = 0; i < NUM; ++i)
+	{
+		v.emplace_back(i + 1);
+	}
+
+	// 찾을 객체를 array에 저장한다.
+	array<String, FNUM> arr;
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		arr[i] = v[sel(dre)];
+	}
+
+	arr[0].setCnt(0);
+
+	for (int i = 0; i < FNUM; ++i)
+	{
+		find(v.begin(), v.end(), arr[i]);
+	}
+
+	cout << "operator== 의 호출 수 비교" << endl;
+	cout << "논리적으로 예측한 수 : " << NUM / 2 * FNUM << endl;
+	cout << "실제로 호출 수 : " << arr[0].getCnt() << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-20 오후 3:21:11 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월20일 목요일 (12주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	// [문제] v를 홀짝으로 분리하고 화면에 홀수와 짝수를 출력하라.
+
+	// 홀짝으로 분리된 지점의 iterator를 반환한다.
+	auto iter = partition(v.begin(), v.end(), [](int num) {
+		return num & 1;
+		});
+
+	copy(v.begin(), iter, ostream_iterator<int>{cout, " "});
+	cout << endl;
+	copy(iter, v.end(), ostream_iterator<int>{cout, " "});
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 1:34:14 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	// [문제] v를 sort를 사용하여 홀짝으로 분리하라.
+	sort(v.begin(), v.end(), [](int a, int b) {
+		return (a & 1) > (b & 1);
+		});
+
+	for (int n : v)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 1:51:36 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	// vector의 이 생성자는 무엇을 의미하나?
+	vector<int> v(10, 2);
+
+	for (int n : v)
+	{
+		cout << n << ' ';
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:02:01 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	// vector의 이 생성자는 무엇을 의미하나?
+	vector<int> v(10, 2);
+
+	for_each(v.begin(), v.end(), [](int n) {
+		cout << n << " ";
+		});
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:03:14 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	// vector의 이 생성자는 무엇을 의미하나?
+	vector<int> v(10, 2);
+
+	for_each(v.begin(), v.end(), [](int& n) {
+		n *= 2;
+		});
+
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:05:19 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+template <class InIter, class UnaryFuntion>
+void For_each(InIter begin, InIter end, UnaryFuntion f)
+{
+	while (begin != end)
+	{
+		f(*begin++);
+	}
+}
+
+int main()
+{
+	// vector의 이 생성자는 무엇을 의미하나?
+	vector<int> v(10, 2);
+
+	For_each(v.begin(), v.end(), [](int& n) {
+		n *= 2;
+		});
+
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:13:03 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	// initializer list
+	auto il = { 1, 2, 3, 4, 5 };
+	vector<int> v{ 1, 2, 4, 5 };
+
+	auto [suc, loc] = mismatch(il.begin(), il.end(), v.begin());
+
+	cout << *loc << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:43:48 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	vector<int> v2(10);
+
+	// 데이터를 뒤에서부터 삽입하여 복사한다.
+	copy_backward(v.begin(), v.end(), v2.end());
+
+	for (int n : v2)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:47:10 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	vector<int> v2;
+
+	move(v.begin(), v.end(), back_inserter(v2));
+
+	cout << "===== v =====" << endl;
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	cout << "===== v2 =====" << endl;
+	for (int n : v2)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 2:54:22 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <random>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 로또 번호 생성기를 만든다.
+random_device rd;
+default_random_engine eng;
+uniform_int_distribution<> uid{ 1, 45 };
+
+int main()
+{
+	cout << "이번 주 1등 번호입니다." << endl;
+	for (int i = 0; i < 6; ++i)
+	{
+		cout << uid(eng) << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 3:05:05 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 로또 번호 생성기를 만든다.
+// 알고리즘의 sample 함수를 사용해본다.
+
+int main()
+{
+	vector<int> v(45);
+
+	// for문이 있는데 굳이 알고리즘을 사용하는 이유?
+	// => 오류를 줄일 수 있다.
+
+	iota(v.begin(), v.end(), 1);
+	//for (int i = 0; i < 45; ++i)
+	//{
+	//	v.push_back(i + 1);
+	//}
+
+	cout << "이번 주 1등 번호입니다." << endl;
+	sample(v.begin(), v.end(), ostream_iterator<int>{cout, " "}, 6, mt19937{random_device{}()});
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 3:11:47 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// partition
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	// 홀짝으로 분리하라.
+	partition(v.begin(), v.end(), [](int num) {
+		return num & 1; // num % 2 == 1;
+		});
+
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-25 오후 3:12:09 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월25일 화요일 (13주 1일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// partition
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	// 홀짝으로 분리하고 순서대로 나열하라.
+	stable_partition(v.begin(), v.end(), [](int num) {
+		return num & 1; // num % 2 == 1;
+		});
+
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 1:36:04 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <thread>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 전광판을 만들어라.
+
+int main()
+{
+	save("소스.cpp");
+
+	// 한글은 2바이트이기 때문에 두 칸씩 띄어써서 깨지지 않도록 하였다.
+	String s{ "안녕하세요!  C++는  너무너무  재미있어요  " };
+
+	cout << endl;
+
+	while (true)
+	{
+		cout << s;
+		rotate(s.begin(), s.begin() + 2, s.end());
+		this_thread::sleep_for(200ms);
+		cout << "\r";
+	}
+}
+
+======================================
+저장시간 : 2021-05-27 오후 1:37:20 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <thread>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 전광판을 만들어라.
+
+int main()
+{
+	save("소스.cpp");
+
+	String s{ "->->->->->->->->->->" };
+
+	cout << endl;
+
+	while (true)
+	{
+		cout << s;
+		rotate(s.begin(), s.end() - 1, s.end());
+		this_thread::sleep_for(200ms);
+		cout << "\r";
+	}
+}
+
+======================================
+저장시간 : 2021-05-27 오후 1:38:13 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <thread>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] 전광판을 만들어라.
+
+int main()
+{
+	save("소스.cpp");
+
+	String s{ "123456789" };
+
+	cout << endl;
+
+	while (true)
+	{
+		cout << s;
+		rotate(s.begin(), s.begin() + 1, s.end());
+		this_thread::sleep_for(200ms);
+		cout << "\r";
+	}
+}
+
+======================================
+저장시간 : 2021-05-27 오후 1:47:28 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+using namespace std;
+
+int main()
+{
+	vector<pair<int, int>> v;
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(make_pair((i + 1) % 10, 100 - i));
+	}
+
+	for (const auto& [standard, order] : v) // structured binding
+	{
+		cout << standard << " --- " << order << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 1:50:27 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+using namespace std;
+
+int main()
+{
+	vector<pair<int, int>> v;
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(make_pair((i + 1) % 10, 100 - i));
+	}
+
+	// sort하고 출력한다.
+	// 매개변수를 각각 pair<int, int>로 한 경우와 auto로 한 경우
+	sort(v.begin(), v.end(), [](const pair<int, int>& a, const auto& b) {
+		return a.first < b.first;
+		});
+
+	for (const auto& [standard, order] : v) // structured binding
+	{
+		cout << standard << " --- " << order << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 1:51:19 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+using namespace std;
+
+int main()
+{
+	vector<pair<int, int>> v;
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(make_pair((i + 1) % 10, 100 - i));
+	}
+
+	// sort하고 출력한다.
+	// 매개변수를 각각 pair<int, int>로 한 경우와 auto로 한 경우
+	// 순서가 중요한 경우(ex 먼저한 정렬의 순서를 유지하기 위해서)
+	stable_sort(v.begin(), v.end(), [](const pair<int, int>& a, const auto& b) {
+		return a.first < b.first;
+		});
+
+	for (const auto& [standard, order] : v) // structured binding
+	{
+		cout << standard << " --- " << order << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:03:29 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+// sort			-> O(nlogn)
+//				-> 1등부터 n등까지 정렬
+// 
+// stable_sort -> O(nlogn^2), 메모리가 충분히 많은 경우는 O(nlogn)도 가능하다.
+//			   -> equivalence 판단이 같은 원소의 상대 순위를 유지한다.
+// 
+// partial_sort -> 1등부터 10등까지만 정렬
+// 
+// nth_element -> 10등과 나머지로 분류
+
+using namespace std;
+
+random_device rd;
+default_random_engine eng{ rd() };
+
+int main()
+{
+	// vector에 1부터 100까지 원소를 넣는다.
+	vector<int> v;
+	v.reserve(100);
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(i + 1);
+	}
+
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+
+
+		// 출력한다.
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:04:48 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+// sort			-> O(nlogn)
+//				-> 1등부터 n등까지 정렬
+// 
+// stable_sort -> O(nlogn^2), 메모리가 충분히 많은 경우는 O(nlogn)도 가능하다.
+//			   -> equivalence 판단이 같은 원소의 상대 순위를 유지한다.
+// 
+// partial_sort -> 1등부터 10등까지만 정렬
+// 
+// nth_element -> 10등과 나머지로 분류
+
+using namespace std;
+
+random_device rd;
+default_random_engine eng{ rd() }; // pseudo-random(진짜를 흉내내는 가짜 랜덤)
+
+int main()
+{
+	// vector에 1부터 100까지 원소를 넣는다.
+	vector<int> v;
+	v.reserve(100);
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(i + 1);
+	}
+
+	// sort
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+		sort(v.begin(), v.end());
+
+		// 출력한다.
+		cout << "===== sort() =====" << endl;
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:06:46 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+// sort			-> O(nlogn)
+//				-> 1등부터 n등까지 정렬
+// 
+// stable_sort -> O(nlogn^2), 메모리가 충분히 많은 경우는 O(nlogn)도 가능하다.
+//			   -> equivalence 판단이 같은 원소의 상대 순위를 유지한다.
+// 
+// partial_sort -> 1등부터 10등까지만 정렬
+// 
+// nth_element -> 10등과 나머지로 분류
+
+using namespace std;
+
+random_device rd;
+default_random_engine eng{ rd() }; // pseudo-random(진짜를 흉내내는 가짜 랜덤)
+
+int main()
+{
+	// vector에 1부터 100까지 원소를 넣는다.
+	vector<int> v;
+	v.reserve(100);
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(i + 1);
+	}
+
+	// sort
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+		sort(v.begin(), v.end());
+
+		// 출력한다.
+		cout << "===== sort() =====" << endl;
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	// partial_sort
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+		partial_sort(v.begin(), v.begin() + 30, v.end());
+
+		// 출력한다.
+		cout << "===== partial_sort() =====" << endl;
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:09:27 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+// [문제] sort 관련 함수를 구분하여 사용할 수 있어야 한다.
+// sort와 stable_sort의 구분에서부터 시작한다.
+// stable : 정렬 후에도 순서가 유지되는 것
+
+// sort			-> O(nlogn)
+//				-> 1등부터 n등까지 정렬
+// 
+// stable_sort -> O(nlogn^2), 메모리가 충분히 많은 경우는 O(nlogn)도 가능하다.
+//			   -> equivalence 판단이 같은 원소의 상대 순위를 유지한다.
+// 
+// partial_sort -> 1등부터 10등까지만 정렬
+// 
+// nth_element -> 10등과 나머지로 분류
+
+using namespace std;
+
+random_device rd;
+default_random_engine eng{ rd() }; // pseudo-random(진짜를 흉내내는 가짜 랜덤)
+
+int main()
+{
+	// vector에 1부터 100까지 원소를 넣는다.
+	vector<int> v;
+	v.reserve(100);
+
+	for (int i = 0; i < 100; ++i)
+	{
+		v.push_back(i + 1);
+	}
+
+	// sort
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+		sort(v.begin(), v.end());
+
+		// 출력한다.
+		cout << "===== sort() =====" << endl;
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	// partial_sort
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+		partial_sort(v.begin(), v.begin() + 30, v.end());
+
+		// 출력한다.
+		cout << "===== partial_sort() =====" << endl;
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	// nth_element
+	{
+		// 벡터를 섞는다.
+		shuffle(v.begin(), v.end(), eng);
+
+		// sort한다.
+		nth_element(v.begin(), v.begin() + 30, v.end());
+
+		// 출력한다.
+		cout << "===== nth_element() =====" << endl;
+		for (int n : v)
+		{
+			cout << n << " ";
+		}
+		cout << endl << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:34:18 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+// [문제] 정렬되어있는 자료가 있다면,
+// binary_search
+// equal_range
+// lower_bound
+// upper_bound
+
+// [준비] "소스.cpp"의 영문자를 벡터에 담아라.
+
+using namespace std;
+
+int main()
+{
+	ifstream in{ "소스.cpp" };
+	vector<char> v;
+
+	copy_if(istream_iterator<char>{in}, {}, back_inserter(v), [](char c) {
+		return isalpha(c);
+		});
+
+	for (char c : v)
+	{
+		cout << c;
+	}
+	cout << endl << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:37:54 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+// [문제] 정렬되어있는 자료가 있다면,
+// binary_search
+// equal_range
+// lower_bound
+// upper_bound
+
+// [준비] "소스.cpp"의 영문자를 벡터에 담아라.
+
+using namespace std;
+
+int main()
+{
+	ifstream in{ "소스.cpp" };
+	vector<char> v;
+
+	char c;
+	while (in >> c)
+	{
+		if (isalpha(c))
+		{
+			v.push_back(c);
+		}
+	}
+
+	// 위 코드와 동일하지만 굳이?
+	//copy_if(istream_iterator<char>{in}, {}, back_inserter(v), [](char c) {
+	//	return isalpha(c);
+	//	});
+
+	// v를 오름차순으로 정렬한다.
+	// sort()의 pred의 default는 less<char>()이다.
+	sort(v.begin(), v.end(), less<char>());
+
+	for (char c : v)
+	{
+		cout << c;
+	}
+	cout << endl << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 2:57:40 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include "save.h"
+#include "String.h"
+
+// [문제] 정렬되어있는 자료가 있다면,
+// binary_search
+// equal_range
+// lower_bound
+// upper_bound
+
+// [준비] "소스.cpp"의 영문자를 벡터에 담아라.
+
+using namespace std;
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "소스.cpp" };
+	vector<char> v;
+
+	char c;
+	while (in >> c)
+	{
+		if (isalpha(c))
+		{
+			v.push_back(c);
+		}
+	}
+
+	// 위 코드와 동일하지만 굳이?
+	//copy_if(istream_iterator<char>{in}, {}, back_inserter(v), [](char c) {
+	//	return isalpha(c);
+	//	});
+
+	// v를 오름차순으로 정렬한다.
+	// sort()의 pred의 default는 less<char>()이다.
+	sort(v.begin(), v.end(), less<char>());
+
+	for (char c : v)
+	{
+		cout << c;
+	}
+	cout << endl << endl;
+
+	// [문제] 사용자가 찾는 문자가 있나 대답하는 프로그램을 작성한다.
+	// - 없으면 없다고 대답한다.			binary_search (존재 유무만 파악한다.)
+	// - 있으면 몇 개가 있다고 대답한다.	equal_range (해당 원소의 범위를 pair로 반환한다.)
+
+	 
+	while (true)
+	{
+		cout << "찾으려는 문자을 입력하세요 : ";
+
+		// loop optimazation(반복문 안에서 선언된 변수는 컴파일러가 자동으로 루프 밖으로 빼서 최적화를 수행한다.)
+		char c;
+		cin >> c;
+
+		if (!binary_search(v.begin(), v.end(), c))
+		{
+			cout << "찾으려는 문자 " << c << "은(는) 존재하지 않습니다." << endl << endl;
+			continue;
+		}
+
+		auto iters = equal_range(v.begin(), v.end(), c);
+		// 위 코드는 auto [upper, lower] = equal_range(v.begin(), v.end(), c);와 같다.
+
+		cout << "찾으려는 문자는 " << iters.second - iters.first << "개 있습니다." << endl;
+		// 위 코드는 cout << "찾으려는 문자는 " << lower - upper << "개 있습니다." << endl;와 같다.
+
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-05-27 오후 3:07:06 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] abcde로 만들 수 있는 모든 순열을 출력하라.
+// 5! = 5 x 4 x 3 x 2 x 1 = 120
+
+int main()
+{
+	String s{ "abcde" };
+
+	int i{};
+	do
+	{
+		cout << "[" << ++i << "] " << s << endl;
+	} while (next_permutation(s.begin(), s.end()));
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 3:07:59 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 함수 살펴보기
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// [문제] abcde로 만들 수 있는 모든 순열을 출력하라.
+// 5! = 5 x 4 x 3 x 2 x 1 = 120
+
+int main()
+{
+	String s{ "cabde" };
+
+	int i{};
+	do
+	{
+		cout << "[" << ++i << "] " << s << endl;
+	} while (next_permutation(s.begin(), s.end()));
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 3:15:35 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+	vector<string> v;
+
+	string s{};
+	while (in >> s)
+	{
+		v.push_back(s);
+	}
+
+	cout << "단어 수 : " << v.size() << "개" << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 3:18:33 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	ifstream in{ "단어들.txt             " }; // 다음과 같이 공백이 들어가도 문제되지 않는다.
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v;
+
+	string s{};
+	while (in >> s)
+	{
+		v.push_back(s);
+	}
+
+	cout << "단어 수 : " << v.size() << "개" << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-05-27 오후 3:19:31 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 05월27일 목요일 (13주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v{ istream_iterator<string>{in}, {} };
+
+	cout << "단어 수 : " << v.size() << "개" << endl;
+
+	// anagram의 예시?
+	// battle --- battle, tablet
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-01 오후 1:36:03 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v{ istream_iterator<string>{in}, {} };
+
+	// 이 단어는 정렬되어 있나?
+	cout << "정렬 되어 있는가? " << boolalpha << is_sorted(v.begin(), v.end()) << endl;
+
+	// 겹치는 단어는 없나?
+	auto iter = unique(v.begin(), v.end());
+
+	if (iter == v.end())
+	{
+		cout << "겹치는 단어는 없다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-01 오후 1:37:54 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v{ istream_iterator<string>{in}, {} };
+
+	// 이 단어는 정렬되어 있나?
+	cout << "정렬 되어 있는가? " << boolalpha << is_sorted(v.begin(), v.end()) << endl;
+
+	// 겹치는 단어는 없나?
+	auto iter = unique(v.begin(), v.end());
+
+	if (iter == v.end())
+	{
+		cout << "겹치는 단어는 없다." << endl;
+	}
+
+	// set을 통해 중복을 검증해본다.
+	set<string> s{ v.begin(), v.end() };
+
+	if (s.size() == v.size())
+	{
+		cout << "원소 수가 같으니 겹치는 단어는 틀림없이 없다." << endl;
+	}
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-01 오후 2:02:32 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v{ istream_iterator<string>{in}, {} };
+
+	cout << "모두 " << v.size() << "개의 정렬된 단어가 준비되어있습니다." << endl << endl;
+
+	// [문제] 사용자가 입력한 단어를 내 사전에서 찾는다.
+	// 단어가 없으면 "없는 단어입니다."라고 출력한다.
+	// 사전에 있는 단어라면 이 단어와 anagram 관계에 있는 단어를 모두 출력한다.
+	while (true)
+	{
+		string word;
+
+		cout << "찾으려는 단어를 입력하세요 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word))
+		{
+			cout << word << "은(는) 사전에 없는 단어입니다." << endl;
+			continue;
+		}
+		
+		cout << endl;
+		cout << word << "와(과) anagram 관계에 있는 단어는 다음과 같습니다." << endl;
+
+		sort(word.begin(), word.end());
+
+		do
+		{
+			if (binary_search(v.begin(), v.end(), word))
+			{
+				cout << word << endl;
+			}
+
+		} while (next_permutation(word.begin(), word.end()));
+		cout << endl;
+	}
+
+	// next_permutation() 함수는 긴 영단어에 대해서는 효율적이지 못하다.
+}
+
+======================================
+저장시간 : 2021-06-01 오후 2:05:37 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v{ istream_iterator<string>{in}, {} };
+
+	cout << "모두 " << v.size() << "개의 정렬된 단어가 준비되어있습니다." << endl << endl;
+
+	// [문제] 길이가 긴 순서대로 10개 단어를 출력하라.
+	partial_sort(v.begin(), v.begin() + 10, v.end(), [](const string& a, const string& b) {
+		return a.size() > b.size();
+		});
+
+	for (int i = 0; i < 10; ++i)
+	{
+		cout << v[i] << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-01 오후 2:37:31 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <map>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<string> v{ istream_iterator<string>{in}, {} };
+
+	// 모든 단어를 정렬하여 같은 것은 anagram이라는 점을 이용한다.
+	for (int i = 100'000; i < 100'010; ++i)
+	{
+		cout << v[i] << " --- ";
+		sort(v[i].begin(), v[i].end());
+		cout << v[i] << endl;
+	}
+
+	cout << "모두 " << v.size() << "개의 정렬된 단어가 준비되어있습니다." << endl << endl;
+
+	// [문제] 사용자가 입력한 단어를 내 사전에서 찾는다.
+	// 단어가 없으면 "없는 단어입니다."라고 출력한다.
+	// 사전에 있는 단어라면 이 단어와 anagram 관계에 있는 단어를 모두 출력한다.
+	while (true)
+	{
+		string word;
+
+		cout << "찾으려는 단어를 입력하세요 : ";
+		cin >> word;
+
+		if (!binary_search(v.begin(), v.end(), word))
+		{
+			cout << word << "은(는) 사전에 없는 단어입니다." << endl;
+			continue;
+		}
+	}
+}
+
+======================================
+저장시간 : 2021-06-01 오후 2:44:44 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS() = default;
+
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+
+	for (int i = 100'000; i < 100'100; ++i)
+	{
+		cout << v[i].first << " - " << v[i].second << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-01 오후 2:47:12 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS() = default;
+
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first > b.first;
+		});
+
+	for (int i = 210'000; i < 210'020; ++i)
+	{
+		cout << v[i].first << " - " << v[i].second << endl;
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-01 오후 3:07:42 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS() = default;
+
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	//for (int i = 210'000; i < 210'200; ++i)
+	//{
+	//	cout << v[i].first << " - " << v[i].second << endl;
+	//}
+	//cout << endl;
+
+	while (true)
+	{
+		string word;
+
+		cout << "찾으려는 단어를 입력하세요 : ";
+		cin >> word;
+
+		sort(word.begin(), word.end());
+		cout << "사전에서 " << word << "와 같은 first를 찾는다." << endl;
+
+		// ==가 아닌 <에 주목한다.
+		auto iter = equal_range(v.begin(), v.end(), PS{ word }, [](const PS& elm, const PS& val) {
+			return elm.first < val.first;
+			});
+
+		if (iter.first == iter.second)
+		{
+			cout << "해당 단어는 없는 단어입니다." << endl;
+			continue;
+		}
+
+		cout << "anagram 관계인 단어들 입니다." << endl;
+		for (auto p = iter.first; p != iter.second; ++p)
+		{
+			cout << p->first << " - " << p->second << endl;
+		}
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-06-01 오후 3:10:59 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS() = default;
+
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	//for (int i = 210'000; i < 210'200; ++i)
+	//{
+	//	cout << v[i].first << " - " << v[i].second << endl;
+	//}
+	//cout << endl;
+
+	while (true)
+	{
+		string word;
+
+		cout << "찾으려는 단어를 입력하세요 : ";
+		cin >> word;
+
+		sort(word.begin(), word.end());
+		cout << "사전에서 " << word << "와 같은 first를 찾는다." << endl;
+
+		auto iter = equal_range(v.begin(), v.end(), PS{ word }, [](const PS& elm, const PS& val) {
+			return elm.first < val.first;
+			});
+
+		if (iter.first == iter.second)
+		{
+			cout << "해당 단어는 없는 단어입니다." << endl;
+			continue;
+		}
+
+		cout << "anagram 관계인 단어들 입니다." << endl;
+		for (auto p = iter.first - 1; p < iter.second + 1; ++p)
+		{
+			cout << p->first << " - " << p->second << endl;
+		}
+		cout << endl;
+	}
+}
+
+======================================
+저장시간 : 2021-06-01 오후 3:17:58 화요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월01일 화요일 (14주 1일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS() = default;
+
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	for (int i = 0; i < 500; ++i)
+	{
+		cout << v[i].first << " - " << v[i].second << endl;
+	}
+	cout << endl;
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	while (true)
+	{
+		// 나와 다음 것이 같은지 찾는다.
+		// if (찾음)
+		//	  찾은 자리를 저장하고
+		//    다음 위치와 다른 값이 나오는 자리를 찾는다.
+		//    if (end())
+	}
+}
+
+======================================
+저장시간 : 2021-06-03 오후 1:45:06 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+	// 어떤 객체를 istream_iterator<>처럼 사용하기 위해서는 operator>>가 정의되어야 한다.
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	auto begin = v.begin();
+
+	while (true)
+	{
+		// 검사 시작위치부터 끝까지 중 이웃한 원소가 같은 위치를 찾는다.
+		auto i = begin;
+
+		if (i == v.end())
+		{
+			break;
+		}
+
+		// i + 1부터 검사해서 first 값이 달라지는 위치를 찾는다.
+
+		// [i, j)는 anagram 쌍이다.
+	}
+}
+
+======================================
+저장시간 : 2021-06-03 오후 2:04:32 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+	// 어떤 객체를 istream_iterator<>처럼 사용하기 위해서는 operator>>가 정의되어야 한다.
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	// 파일 "애너그럼쌍.txt"에 저장하라.
+	ofstream out{ "애너그럼쌍.txt" };
+	auto begin = v.begin();
+	int cnt{};
+
+	while (true)
+	{
+		// 검사 시작위치부터 끝까지 중 이웃한 원소가 같은 위치를 찾는다.
+		auto i = adjacent_find(begin, v.end(), [](const PS& a, const PS& b) {
+			return a.first == b.first;
+			});
+
+		if (i == v.end())
+		{
+			break;
+		}
+
+		// i + 1부터 검사해서 first 값이 달라지는 위치를 찾는다.
+		// return에서 ==인 것을 눈여겨 볼 것
+		auto j = find_if_not(i + 1, v.end(), [i](const PS& a) {
+			return a.first == i->first;
+			});
+
+		// [i, j)는 anagram 쌍이다.
+		out << "[" << ++cnt << "] - ";
+		for (auto iter = i; iter < j; ++iter)
+		{
+			out << iter->second << " ";
+		}
+		out << endl;
+
+		begin = j;
+
+		//copy(i, j, ostream_iterator<PS>{cout});
+	}
+}
+
+======================================
+저장시간 : 2021-06-03 오후 2:24:52 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+	// 어떤 객체를 istream_iterator<>처럼 사용하기 위해서는 operator>>가 정의되어야 한다.
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	// 애너그램 개수 기준 내림차순으로 정렬하여
+	// "개수순애너그램.txt"로 저장하라.
+	auto begin = v.begin();
+	vector < list<string>> anagrams;
+
+	anagrams.reserve(31'000);
+
+	while (true)
+	{
+		// 검사 시작위치부터 끝까지 중 이웃한 원소가 같은 위치를 찾는다.
+		auto i = adjacent_find(begin, v.end(), [](const PS& a, const PS& b) {
+			return a.first == b.first;
+			});
+
+		if (i == v.end())
+		{
+			break;
+		}
+
+		// i + 1부터 검사해서 first 값이 달라지는 위치를 찾는다.
+		// return에서 ==인 것을 눈여겨 볼 것
+		auto j = find_if_not(i + 1, v.end(), [i](const PS& a) {
+			return a.first == i->first;
+			});
+
+		// [i, j)는 anagram 쌍이다.
+		list<string> imsi;
+
+		for (auto iter = i; iter < j; ++iter)
+		{
+			imsi.push_back(iter->second);
+		}
+
+		anagrams.push_back(imsi);
+		begin = j;
+	}
+
+	cout << "모두 " << anagrams.size() << "쌍을 찾았습니다." << endl;
+
+	// 길이 내림차순으로 정렬한다.
+	sort(anagrams.begin(), anagrams.end(), [](const list<string>& a, const list<string>& b) {
+		return a.size() > b.size();
+		});
+
+	cout << "가장 많은 수 : " << anagrams[0].size() << endl;
+
+	ofstream out{ "애너그럼쌍.txt" };
+	int cnt{};
+
+	for (const list<string> words : anagrams)
+	{
+		out << "[" << ++cnt << "] - ";
+		copy(words.begin(), words.end(), ostream_iterator<string>{out, " "});
+		out << endl;
+	}
+
+	cout << endl;
+}
+
+======================================
+저장시간 : 2021-06-03 오후 2:26:43 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+	// 어떤 객체를 istream_iterator<>처럼 사용하기 위해서는 operator>>가 정의되어야 한다.
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	// 애너그램 개수 기준 내림차순으로 정렬하여
+	// "개수순애너그램.txt"로 저장하라.
+	auto begin = v.begin();
+	vector < list<string>> anagrams;
+
+	anagrams.reserve(31'000);
+
+	while (true)
+	{
+		// 검사 시작위치부터 끝까지 중 이웃한 원소가 같은 위치를 찾는다.
+		auto i = adjacent_find(begin, v.end(), [](const PS& a, const PS& b) {
+			return a.first == b.first;
+			});
+
+		if (i == v.end())
+		{
+			break;
+		}
+
+		// i + 1부터 검사해서 first 값이 달라지는 위치를 찾는다.
+		// return에서 ==인 것을 눈여겨 볼 것
+		auto j = find_if_not(i + 1, v.end(), [i](const PS& a) {
+			return a.first == i->first;
+			});
+
+		// [i, j)는 anagram 쌍이다.
+		list<string> imsi;
+
+		for (auto iter = i; iter < j; ++iter)
+		{
+			imsi.push_back(iter->second);
+		}
+
+		anagrams.push_back(imsi);
+		begin = j;
+	}
+
+	cout << "모두 " << anagrams.size() << "쌍을 찾았습니다." << endl;
+
+	// 길이 내림차순으로 정렬한다.
+	sort(anagrams.begin(), anagrams.end(), [](const list<string>& a, const list<string>& b) {
+		return a.size() > b.size();
+		});
+
+	cout << "가장 많은 수 : " << anagrams[0].size() << endl;
+
+	ofstream out{ "개수순애너그램.txt" };
+	int cnt{};
+
+	for (list<string> words : anagrams)
+	{
+		out << "[" << ++cnt << "] - ";
+		words.sort();
+		copy(words.begin(), words.end(), ostream_iterator<string>{out, " "});
+		out << endl;
+	}
+
+	cout << endl;
+}
+
+======================================
+저장시간 : 2021-06-03 오후 2:48:22 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// 알고리즘 사용예제(anagram)
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+// e-class에서 "단어들.txt"를 다운받아 vector에 저장하라.
+
+// [문제] 모두 몇 단어인지 출력하라.
+
+struct PS : public pair<string, string>
+{
+public:
+	PS(string s) : pair<string, string>(s, s)
+	{
+		sort(first.begin(), first.end());
+	}
+};
+
+int main()
+{
+	save("소스.cpp");
+
+	ifstream in{ "단어들.txt" };
+
+	if (!in)
+	{
+		cout << "파일을 열 수 없습니다." << endl;
+	}
+
+	vector<PS> v{ istream_iterator<string>{in}, {} };
+	// 어떤 객체를 istream_iterator<>처럼 사용하기 위해서는 operator>>가 정의되어야 한다.
+
+	// PS의 first 기준으로 정렬한다.
+	sort(v.begin(), v.end(), [](const PS& a, const PS& b) {
+		return a.first < b.first;
+		});
+
+	// [문제] 이 사전의 모든 anagram 쌍을 출력하라.
+	// 애너그램 개수 기준 내림차순으로 정렬하여
+	// "개수순애너그램.txt"로 저장하라.
+	auto begin = v.begin();
+	vector < list<string>> anagrams;
+
+	anagrams.reserve(31'000);
+
+	while (true)
+	{
+		// 검사 시작위치부터 끝까지 중 이웃한 원소가 같은 위치를 찾는다.
+		auto i = adjacent_find(begin, v.end(), [](const PS& a, const PS& b) {
+			return a.first == b.first;
+			});
+
+		if (i == v.end())
+		{
+			break;
+		}
+
+		// i + 1부터 검사해서 first 값이 달라지는 위치를 찾는다.
+		// return에서 ==인 것을 눈여겨 볼 것
+		auto j = find_if_not(i + 1, v.end(), [i](const PS& a) {
+			return a.first == i->first;
+			});
+
+		// [i, j)는 anagram 쌍이다.
+		list<string> imsi;
+
+		for (auto iter = i; iter < j; ++iter)
+		{
+			imsi.push_back(iter->second);
+		}
+
+		anagrams.push_back(imsi);
+		begin = j;
+	}
+
+	cout << "모두 " << anagrams.size() << "쌍을 찾았습니다." << endl;
+
+	// 길이 내림차순으로 정렬한다.
+	sort(anagrams.begin(), anagrams.end(), [](const list<string>& a, const list<string>& b) {
+		return a.size() > b.size();
+		});
+
+	cout << "가장 많은 수 : " << anagrams[0].size() << endl;
+
+	for (const string& str : anagrams[0])
+	{
+		cout << str << " ";
+	}
+	cout << endl;
+}
+
+======================================
+저장시간 : 2021-06-03 오후 3:04:27 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+
+	//ranges::sort(v); // ranges::sort(v.begin(), v.end());
+	//ranges::sort(v.begin() + 3, v.end());
+
+	auto even_num = v | views::filter([](int n) { return !(n & 1); }); // lazy evaluation(지연 평가)
+
+	for (int n : even_num)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-03 오후 3:11:35 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+
+	// [문제] v에서 홀수만 골라 값을 10배로 만든 후 출력하라.
+	for (int n : v
+		| views::filter([](int n) { return n & 1; })
+		| views::transform([](int n) { return n *= 10; }))
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-03 오후 3:12:43 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+
+	// [문제] v에서 홀수만 골라 값을 10배로 만든 후 출력하라.
+	for (int n : v
+		| views::filter([](int n) { return n & 1; })
+		| views::transform([](int n) { return n *= 10; }))
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	// v값이 변화하는지 관찰해본다.
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+	
+	save("소스.cpp");
+}
+
+======================================
+저장시간 : 2021-06-03 오후 3:13:49 목요일
+======================================
+// ================================================================
+// 2021. 1학기 STL 화56목56 - 06월03일 목요일 (14주 2일)
+// 
+// range, view
+// 
+// 기말시험 - 06월10일 목요일 (15주 2일)
+// ================================================================
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v{ 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+
+	// [문제] v에서 홀수만 골라 값을 10배로 만든 후 출력하라.
+	for (int n : v
+		| views::filter([](int n) { return n & 1; })
+		| views::transform([](int& n) { return n *= 10; }))
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+
+	// v값이 변화하는지 관찰해본다.
+	for (int n : v)
+	{
+		cout << n << " ";
+	}
+	cout << endl;
+	
+	save("소스.cpp");
+}
