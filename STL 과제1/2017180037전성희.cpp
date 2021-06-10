@@ -28,7 +28,7 @@ ostream& operator<<(ostream& os, const Player& player)
 	return os;
 }
 istream& operator>>(istream& is, Player& player) {
-	is >> player;
+	is >> player.name >> player.id;
 	return is;
 }
 
@@ -43,5 +43,7 @@ int main()
 	while (in >> player) {
 		v.push_back(player);
 	}
+	for (int i = 0; i < v.size(); ++i)
+		cout << "[" << i << "] " << v[i] << endl;
 	
 }
